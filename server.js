@@ -21,7 +21,7 @@ function getPerson(req, res) {
 
     var person_id = request.query.id;
 
-	getPersonFromDb(id, function(err, res) {
+	getPersonFromDb(person_id, function(err, res) {
 
 		if (err || res == null || res.length != 1) {
 			res.status(500).json({success: false, data: err});
