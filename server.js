@@ -76,6 +76,7 @@ app.listen(app.get('port'), function() {
 
 // }
 
+var sql = "SELECT * FROM person";
 
 function getPerson() {
     pool.query(sql, function(err, result) {
