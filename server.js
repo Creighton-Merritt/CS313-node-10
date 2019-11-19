@@ -1,7 +1,11 @@
 require('dotenv').config();
-const connectionString = process.env.DATABASE_URL;
 
-const pool = new pool({connectionString: connectionString});
+const express = require('express');
+const app = express();
+const { Pool } = require("pg");
+
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({connectionString: connectionString});
 var sql = "SELECT * FROM.person";
 
 pool.query(sql, function(err, result) {
@@ -16,3 +20,7 @@ pool.query(sql, function(err, result) {
     console.log(result.rows);
 
 });
+
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+  });
