@@ -1,0 +1,23 @@
+{
+  "name": "cs313-node-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Creighton-Merritt/CS313-node-10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Creighton-Merritt/CS313-node-10/issues"
+  },
+  "homepage": "https://github.com/Creighton-Merritt/CS313-node-10#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
