@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Creighton-Merritt/CS313-node-10#readme",
   "dependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^7.13.0"
   }
 }
