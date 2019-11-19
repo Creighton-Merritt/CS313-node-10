@@ -46,7 +46,7 @@ function getPersonFromDb(id, callback) {
 
 	// Set up the SQL that we will use for our query. Note that we can make
 	// use of parameter placeholders just like with PHP's PDO.
-	const sql = "SELECT id, first, last, birthdate FROM person WHERE id = $1::int";
+	const sql = "SELECT id, first_name, last_name, birth_date FROM person WHERE id = $1::int";
 
 	// We now set up an array of all the parameters we will pass to fill the
 	// placeholder spots we left in the query.
