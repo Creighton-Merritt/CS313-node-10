@@ -5,7 +5,6 @@ const { Pool } = require("pg");
 
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
-var sql = "SELECT * FROM.person";
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
