@@ -26,7 +26,7 @@ function getPerson(req, res) {
 		if (err || res == null || res.length != 1) {
 			res.status(500).json({success: false, data: err});
 		} else {
-			const person = result[0];
+			const person = res[0];
 			res.status(200).json(person);
 		}
 	});
@@ -50,7 +50,7 @@ function getPersonFromDb(id, callback) {
 		// Log this to the console for debugging purposes.
 		console.log("Found result: " + JSON.stringify(res.rows));
 
-		callback(null, result.rows);
+		callback(null, res.rows);
 	});
 
 }
