@@ -19,7 +19,7 @@ app.listen(app.get('port'), function() {
 
 function getPerson(req, res) {
 
-    var person_id = request.query.id;
+    var person_id = req.query.id;
 
 	getPersonFromDb(person_id, function(err, res) {
 
