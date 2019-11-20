@@ -22,18 +22,15 @@ function getPerson(req, res) {
     console.log("Retrieving person with id: ", id);
 
         getPersonFromDb(id, function(error, result) {
-            console.log("Back from the database with result: ", result);
-            res.json(result);
-        });
 
-    
-        //     if (error || result == null || result.length != 1) {
-        //         response.status(500).json({success: false, data: error});
-        //     } else {
-        //         const person = result[0];
-        //         response.status(200).json(person);
-        //     }
-        // });
+            if (error || result == null || result.length != 1) {
+                res.status(500).json({success:false, data: error});
+            } else {
+
+                console.log("Back from the database with result: ", result);
+                res.json(result[0]);
+            }
+        });
 }
 
 function getPersonFromDb(id, callback) {
