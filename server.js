@@ -53,22 +53,3 @@ function getPersonFromDb(id, callback) {
 
 }
 
-
-// test from activity
-// var sql = "SELECT * FROM person";
-
-// function getPerson() {
-//     pool.query(sql, function(err, result) {
-//     // If an error occured...
-//     if(err) {
-//         console.log("Error in query: ")
-//         console.log(err);
-//     }
-
-//     // Log this to the console for debugging purposes.
-//     console.log("Back from DB with result: ");
-//     console.log(result.rows);
-//     result.rows;
-
-// });
-// }
