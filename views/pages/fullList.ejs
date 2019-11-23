@@ -10,8 +10,8 @@
 <body>
     
     <ul>
-        <% for(var i=0; i < Object.keys(result).length ; i++) {%>
-            <li><%= Object.keys(result)[i].item_name %> - <%= Object.keys(result)[i].store_name %></li>
+        <% for(var i=0; i < result.length ; i++) {%>
+            <li><%= result[i].item_name %> - <%= result[i].store_name %></li>
             <% } %>
     </ul>
 </body>
