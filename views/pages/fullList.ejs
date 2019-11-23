@@ -10,18 +10,18 @@
 </head>
 <body>
     <div class="col-md">
-        <table class="table table-inverse">
-            <thead>
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
-                    <th>Item</th>
-                    <th>Where to buy</th>  
+                    <th scope="col">Item</th>
+                    <th scope="col">Where to buy</th>  
                 </tr>
             </thead>
             <tbody>
                 <% for(var i=0; i < result.length ; i++) {%>
                     <tr>
-                        <td><%= result[i].item_name %></td>
-                        <td><%= result[i].store_name %></td>
+                        <tdscope="row"><%= result[i].item_name %></td>
+                        <tdscope="row"><%= result[i].store_name %></td>
                     </tr>
                     <% } %>
             </tbody>
