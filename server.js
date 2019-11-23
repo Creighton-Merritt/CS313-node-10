@@ -6,25 +6,21 @@ const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/getPerson', getPerson);
+app.get('/list', getList);
 
 app.use(express.static(__dirname + '/public'));
-
-// still need to install ejs
-// app.set('views', path.join(__dirname, 'views'))
-// app.set('view engine', 'ejs')
+//app.set('views', path.join(__dirname, 'views'))
+//app.set('view engine', 'ejs')
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running with nodemon on port', app.get('port'));
   });
 
 
-function getPerson(req, res) {
-    console.log("Getting person information.");
-    var id = req.query.id;
-    console.log("Retrieving person with id: ", id);
+function getList(req, res) {
+    console.log("Getting list information.");
 
-        getPersonFromDb(id, function(error, result) {
+        getListFromDB(function(error, result) {
 
             if (error || result == null || result.length != 1) {
                 res.status(500).json({success:false, data: error});
@@ -36,13 +32,12 @@ function getPerson(req, res) {
         });
 }
 
-function getPersonFromDb(id, callback) {
-    console.log("getPersonFromDb person from DB with id: " + id);
+function getListFromDB(callback) {
+    console.log("get list back from db");
 
-    var sql = "SELECT id, first_name, last_name, birth_date FROM person WHERE id = $1::int";
-    var params = [id];
+    var sql = "SELECT item_name, store_name FROM stores LEFT JOIN groceryItems ON store_id = id ORDER BY store_name";
 
-    pool.query(sql, params, function(error, result) {
+    pool.query(sql, function(error, result) {
         if (error) {
             console.log("Error in query: ")
             console.log(error);
@@ -56,3 +51,23 @@ function getPersonFromDb(id, callback) {
 
 }
 
+
+// require('dotenv').config();
+// const express = require('express');
+// const app = express();
+// // const { Pool } = require("pg");
+// // const connectionString = process.env.DATABASE_URL;
+// // const pool = new Pool({connectionString: connectionString});
+// const getList = (require('./files/getList.js'))
+// app.set('port', (process.env.PORT || 5000));
+
+// app.get('/list', getList);
+// //have form route to different store lists
+
+// app.use(express.static(__dirname + '/public'));
+// app.set('views', path.join(__dirname, 'views'))
+// app.set('view engine', 'ejs')
+
+// app.listen(app.get('port'), function() {
+//     console.log('Node app is running with nodemon on port', app.get('port'));
+//   });
