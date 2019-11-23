@@ -14,7 +14,7 @@
         <table class="table table-striped">
             <colgroup>
                 <col class="col-md-1">
-                <col class="col-md-5">
+                <col class="col-md-4">
                 <col class="col-md-3">
             </colgroup>
             <thead>
@@ -28,8 +28,8 @@
                 <% for(var i=0; i < result.length ; i++) {%>
                     <tr>
                         <th scope="row"><%= i + 1 %></th>
-                        <td><%= result[i].item_name %></td>
-                        <td><%= result[i].store_name %></td>
+                        <td class="text-left"><%= result[i].item_name %></td>
+                        <td class="text-left"><%= result[i].store_name %></td>
                     </tr>
                     <% } %>
             </tbody>
