@@ -56,7 +56,16 @@ INSERT INTO groceryItems (name, store_id) VALUES
 ('Thermacare', 3),
 ('Eye cream', 3);
 
+-- Test join/query for selected store
 SELECT item_name, store_name
- FROM groceryItems, stores
- WHERE stores.id = 2;
+FROM stores
+LEFT JOIN groceryItems
+ON store_id = id 
+WHERE store_id = 1;
 
+-- Test join/query for all items and  store
+SELECT item_name, store_name
+FROM stores
+LEFT JOIN groceryItems
+ON store_id = id
+ORDER BY store_name;

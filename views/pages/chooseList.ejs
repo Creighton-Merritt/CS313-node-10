@@ -1,0 +1,44 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form</title>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <div class="container">
+      <form action="/getRate" method="GET">
+        Package type: <select name="mailType" id="type" oninput="valWeight()" required>
+          <option></option>
+          <option value="stamped">Letters (Stamped)</option>
+          <option value="metered">Letters (Metered)</option>
+          <option value="flat">Large Envelopes (Flats)</option>
+          <option value="package">First-Class Package Service-Retail</option>
+        </select>
+        Weight (oz): <input type="number" name="weight" id="weight" max="13" step="0.01" oninput="valWeight()" required>
+        <button type="submit" value="submit" >Submit</button>
+      </form>
+      <script>
+        //Form validation because stamped and metered letter rates only go up to 3.5 oz.
+        function valWeight () {
+            var type = document.getElementById("type").value;
+            var weight =  document.getElementById("weight");
+            if (type == "metered" || type == "stamped") {
+                weight.removeAttribute("max");
+                weight.setAttribute("max", "3.5");
+            } else {
+                weight.setAttribute("max", "13");
+            }
+        }
+        </script>
+    </div>
+  </div>
+
+
+</body>
+</html> -->
