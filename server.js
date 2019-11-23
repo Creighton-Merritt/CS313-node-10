@@ -30,8 +30,8 @@ function getList(req, res) {
             } else {
 
                 console.log("Back from the database with result: ", result);
-                res.render('pages/fullList', result);
-;            }
+                res.render('pages/fullList', {result: JSON.stringify(result)});
+            }
         });
 }
 
