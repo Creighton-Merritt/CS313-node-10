@@ -9,21 +9,23 @@
     <% include ../partials/header.ejs %>
 </head>
 <body>
-    <table class="table table-inverse">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Store</th>  
-          </tr>
-        </thead>
-    <tbody>
-        <% for(var i=0; i < result.length ; i++) {%>
-            <tr>
-                <td><%= result[i].item_name %></td>
-                <td><%= result[i].store_name %></td>
-            </tr>
-            <% } %>
-    </tbody>
-    </table>    
+    <div class="col-md">
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Where to buy</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < result.length ; i++) {%>
+                    <tr>
+                        <td><%= result[i].item_name %></td>
+                        <td><%= result[i].store_name %></td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>   
+    </div> 
 </body>
 </html>
