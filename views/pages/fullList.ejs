@@ -8,11 +8,21 @@
     <% include ../partials/header.ejs %>
 </head>
 <body>
-    
-    <ul>
+    <table class="table table-inverse">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Store</th>  
+          </tr>
+        </thead>
+    <tbody>
         <% for(var i=0; i < result.length ; i++) {%>
-            <li><%= result[i].item_name %> - <%= result[i].store_name %></li>
+            <tr>
+                <td><%= result[i].item_name %></td>
+                <td><%= result[i].store_name %></td>
+            </tr>
             <% } %>
-    </ul>
+    </tbody>
+    </table>    
 </body>
 </html>
