@@ -8,10 +8,10 @@
     <% include ../partials/header.ejs %>
 </head>
 <body>
-    <p><%= JSON.stringify(result) %> </p>
+    
     <ul>
-        <% result.forEach(function(o) { %>
-            <li><%= o.item_name %> - <%= o.store_name %></li>
+        <% for(vari = 0; < full_list.length; i++) { %>
+            <li><%= full_list[i].item_name %> - <%= full_list[i].store_name %></li>
             <% }); %>
     </ul>
 </body>
