@@ -30,9 +30,7 @@ function getList(req, res) {
             } else {
 
                 console.log("Back from the database with result: ", result);
-                
                 const params = {result: result};
-                console.log("trying to stringify for ejs " + params);
                 res.render('pages/fullList', params);
             }
         });
