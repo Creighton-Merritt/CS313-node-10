@@ -27,7 +27,7 @@ function getList(req, res) {
             } else {
 
                 console.log("Back from the database with result: ", result);
-                res.json(result[0]);
+                res.json(result);
             }
         });
 }
