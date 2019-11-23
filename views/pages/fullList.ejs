@@ -8,6 +8,11 @@
     <% include ../partials/header.ejs %>
 </head>
 <body>
-    <!-- <p>Mailing your <%= ctype %> will cost $<%= total %></p> -->
+    <p><%= JSON.stringify(result) %> </p>
+    <ul>
+        <% result.forEach(function(o) { %>
+            <li><%= o.item_name %> - <%= o.store_name %></li>
+            <% }); %>
+    </ul>
 </body>
 </html>

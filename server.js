@@ -7,10 +7,11 @@ const pool = new Pool({connectionString: connectionString});
 app.set('port', (process.env.PORT || 5000));
 
 app.get('/list', getList);
+//set up default page to select lists
 
 app.use(express.static(__dirname + '/public'));
-//app.set('views', path.join(__dirname, 'views'))
-//app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running with nodemon on port', app.get('port'));
@@ -27,8 +28,8 @@ function getList(req, res) {
             } else {
 
                 console.log("Back from the database with result: ", result);
-                res.json(result);
-            }
+                res.render('pages/fullList', result);
+;            }
         });
 }
 
