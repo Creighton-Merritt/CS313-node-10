@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 
 
 app.get('/list', getList);
-//set up default page to select lists
+//set up default page to go to select lists
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running with nodemon on port', app.get('port'));
