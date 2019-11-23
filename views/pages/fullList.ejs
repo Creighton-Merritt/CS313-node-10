@@ -11,8 +11,9 @@
 <body>
     <div class="col-md">
         <table class="table table-striped">
-            <thead class="thead-dark">
+            <thead>
                 <tr>
+                    <th scope="col">#</th>
                     <th scope="col">Item</th>
                     <th scope="col">Where to buy</th>  
                 </tr>
@@ -20,8 +21,9 @@
             <tbody>
                 <% for(var i=0; i < result.length ; i++) {%>
                     <tr>
-                        <tdscope="row"><%= result[i].item_name %></td>
-                        <tdscope="row"><%= result[i].store_name %></td>
+                        <th scope="row"><%= i + 1 %></th>
+                        <td><%= result[i].item_name %></td>
+                        <td><%= result[i].store_name %></td>
                     </tr>
                     <% } %>
             </tbody>
