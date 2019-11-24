@@ -14,7 +14,8 @@ app.get('/', function(req, res) {
     res.render('pages/chooseList')
 });
 
-app.get('/list', getList);
+app.get('/list', getFullList);
+app.get('/stores', getStoreList);
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running with nodemon on port', app.get('port'));

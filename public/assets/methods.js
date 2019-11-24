@@ -1,9 +1,11 @@
-module.exports = getList;
+//module.exports = getFullList;
+module.exports = getStoreList;
+
 const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
-function getList(req, res) {
+function getFullList(req, res) {
     console.log("Getting list information.");
 
         getListFromDB(function(error, result) {
@@ -35,5 +37,10 @@ function getListFromDB(callback) {
 
         callback(null, result.rows);
     });
+
+}
+
+function getStoreList(req, res) {
+
 
 }
