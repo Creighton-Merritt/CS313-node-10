@@ -1,5 +1,5 @@
-module.exports = getFullList;
-module.exports = getStoreList;
+//module.exports = getFullList;
+//module.exports = getStoreList;
 
 const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
