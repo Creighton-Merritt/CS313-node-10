@@ -1,4 +1,4 @@
-//module.exports = getFullList;
+module.exports = getFullList;
 //module.exports = getStoreList;
 
 const { Pool } = require("pg");
