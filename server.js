@@ -2,8 +2,8 @@ require('dotenv').config();
 const path = require('path')
 const express = require('express');
 const app = express();
-const getFullList = (require('./public/assets/methods.js'));
-const getStoreList = (require('./public/assets/methods.js'));
+const getFullList = (require('./public/assets/fullList.js'));
+const getStoreList = (require('./public/assets/lists.js'));
 
 app.set('port', (process.env.PORT || 5000));
 
