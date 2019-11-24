@@ -1,4 +1,7 @@
 module.exports = getList;
+const { Pool } = require("pg");
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({connectionString: connectionString});
 
 function getList(req, res) {
     console.log("Getting list information.");

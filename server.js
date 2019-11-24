@@ -2,9 +2,6 @@ require('dotenv').config();
 const path = require('path')
 const express = require('express');
 const app = express();
-const { Pool } = require("pg");
-const connectionString = process.env.DATABASE_URL;
-const pool = new Pool({connectionString: connectionString});
 const getList = (require('./public/assets/methods.js'));
 
 app.set('port', (process.env.PORT || 5000));
