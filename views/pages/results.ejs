@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Results</title>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body> 
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col-md-1">#</th>
+                    <th scope="col-md-3">Item</th>
+                    <th scope="col-md-2">Where to buy</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < result.length ; i++) {%>
+                    <tr>
+                        <th scope="row"><%= i + 1 %></th>
+                        <td class="text-left"><%= result[i].item_name %></td>
+                        <td class="text-left"><%= result[i].store_name %></td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>   
+    </div> 
+
+</body>
+</html>
