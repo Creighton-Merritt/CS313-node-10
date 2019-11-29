@@ -6,6 +6,7 @@ module.exports = {
 const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
+const bodyParser= require("body-parser");
 
 function getStoreList(req, res) {
     const id = req.query.stores;
