@@ -8,9 +8,16 @@
     <!-- <link href= "/public/assets/list.css" rel="stylesheet" type="text/css"> -->
     <title>List</title>
     <% include ../partials/header.ejs %>
-    <h1 class="display-5"><%= result[0].store_name %></h1><br>
+    <h1 class="display-5"><%= result[0].store_name %></h1><p class="hidden"></p><br>
 </head>
 <body> 
+        <div class="col-md-6">
+                <form action="/addToDb" method="POST">
+                    Add to list: <input type="text" name="itemName" id="itemName"><br>
+                    <input type = "hidden" id="store" name="store" value="<% store_id %>">
+                    <button type="submit" value="submit">Add</button>
+                  </form>
+        </div>
     <div class="col-md-6">
         <table class="table table-striped">
             <thead>

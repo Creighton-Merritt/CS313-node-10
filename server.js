@@ -14,6 +14,7 @@ app.set('view engine', 'ejs')
 
 app.get('/list', getFullList);
 app.get('/stores', getStoreList.getStoreList);
+app.get('/addToDb', getStoreList.addToDb);
 app.get('/', function(req, res) {
     res.render('pages/chooseList')
 });

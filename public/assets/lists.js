@@ -1,6 +1,6 @@
 module.exports = {
-    getStoreList
-    
+    getStoreList,
+    addToDb
 };
 
 const { Pool } = require("pg");
@@ -16,7 +16,9 @@ function getStoreList(req, res) {
             res.status(500).json({success:false, data: error});
         } else {
             console.log("Back from the database with store result: ", result);
-            const params = {result: result};
+            const store_id = result[0].store_id;
+            console.log("Store id: " + store_id);
+            const params = {result: result, store_id: store_id};
             res.render('pages/results', params);
         }
     });
@@ -26,7 +28,7 @@ function getStoreList(req, res) {
 function getListByStore(id, callback) {
 	console.log("Getting list from DB with id: " + id);
 
-    const sql = "SELECT item_name, store_name FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
+    const sql = "SELECT item_name, store_name, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
 	
 	const params = [id];
 
@@ -44,3 +46,6 @@ function getListByStore(id, callback) {
 
 }
 
+function addToDb(req, res) {
+
+}
