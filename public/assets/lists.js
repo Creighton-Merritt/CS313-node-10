@@ -53,19 +53,12 @@ function addToDb(req, res) {
     console.log("Info from form: " + id);
     console.log("Info from form: " + itemName);
 
-    const params = [itemName, id];
-    const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
-
-    pool.query(sql, params, function(err, result) {
-        if (err) {
-			console.log("Error in query: ")
-			console.log(err);
-			callback(err, null);
-		} else {
-            console.log("Successfully added to database");
-            console.log("Params", params);
+    addToList(id, itemName, function(error, result) {
+        if (error || result == null) {
+            res.status(500).json({success:false, data: error});
+        } else {
+            console.log("Added to db");
         }
-
     });
     
     getListByStore(id, function(error, result) {
@@ -80,3 +73,25 @@ function addToDb(req, res) {
         }
     });
 }
+
+
+function addToList(id, itemName, callback) {
+    console.log("In add to list");
+    const params = [itemName, id];
+    const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
+
+    pool.query(sql, params, function(err, result) {
+        if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			callback(err, null);
+		} else {
+            console.log("Successfully added to database");
+            console.log("Params", params);
+            console.log("end add");
+        }
+        callback(null, null, params);
+    });
+    
+}
+
