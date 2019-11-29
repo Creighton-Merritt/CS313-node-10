@@ -47,7 +47,7 @@ function getListByStore(id, callback) {
 }
 
 function addToDb(req, res) {
-    const id = document.getElementById('store').value;
+    const id = req.query.store;
     const item_name = req.query.item_name;
     console.log("Info from form: " + id);
     console.log("Info from form: " + item_name);
