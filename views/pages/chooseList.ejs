@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Choose List</title>
   <% include ../partials/header.ejs %>
 </head>
@@ -11,13 +12,17 @@
 <body> 
   <div class="container">
     <form action="/stores" method="GET">
-      Store: <select name="stores" id="stores"  required>
+      Select Store: <select name="stores" id="stores"  required>
         <option></option>
         <option value="1">Smiths</option>
         <option value="2">Costco</option>
         <option value="3">Amazon</option>
       </select>
       <button type="submit" value="submit" >Submit</button>
+    </form>
+    <form action="/list" method="GET">
+      -Or-<br>
+      <button type="submit" value="submit">View full list </button>
     </form>
   </div> 
 
