@@ -53,7 +53,7 @@ function addToDb(req, res) {
     console.log("Info from form: " + id);
     console.log("Info from form: " + itemName);
 
-    const params = [id, itemName];
+    const params = [itemName, id];
     const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
 
     pool.query(sql, params, function(err, result) {
