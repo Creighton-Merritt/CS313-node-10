@@ -62,14 +62,19 @@ function addToDb(req, res) {
     });
     
     getListByStore(id, function(error, result) {
-        if (error || result == null) {
+        if (error) {
             res.status(500).json({success:false, data: error});
         } else {
+            if(result == null) {
+                store_id = id;
+                res.render('pages/result', store_id);
+            } else {
             console.log("Back from the database with store result: ", result);
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
             const params = {result: result, store_id: store_id};
             res.render('pages/results', params);
+            }
         }
     });
 }
