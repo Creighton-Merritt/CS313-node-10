@@ -16,7 +16,7 @@ function getStoreList(req, res) {
         if (error || result == null || result.length == 0) {
            // res.status(500).json({success:false, data: error});
            const store_id = id;
-           res.render('pages/results', id);
+           res.render('pages/results', store_id);
         } else {
             console.log("Back from the database with store result: ", result);
             const store_id = result[0].store_id;
