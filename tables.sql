@@ -69,3 +69,6 @@ FROM stores
 LEFT JOIN groceryItems
 ON store_id = id
 ORDER BY store_name;
+
+-- Test insert
+INSERT INTO groceryItems (item_name, store_id) VALUES ('Cheddar Slices', 2);
