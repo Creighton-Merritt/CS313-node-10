@@ -13,9 +13,8 @@ function getStoreList(req, res) {
     console.log("Info from form: " + id);
     
     getListByStore(id, function(error, result) {
-        if (error || result == null || result.length == 0) {
-           // res.status(500).json({success:false, data: error});
-           const store_id = id;
+        if (error || result == null) {
+           res.status(500).json({success:false, data: error});
            res.render('pages/results', store_id);
         } else {
             console.log("Back from the database with store result: ", result);
