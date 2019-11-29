@@ -1,4 +1,7 @@
-module.exports = getStoreList;
+module.exports = {
+    getStoreList
+    
+};
 
 const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
@@ -40,3 +43,4 @@ function getListByStore(id, callback) {
 	});
 
 }
+
