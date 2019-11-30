@@ -1,6 +1,6 @@
 module.exports = {
     getStoreList,
-    //addToDb
+    addToDb
 };
 
 const { Pool } = require("pg");
