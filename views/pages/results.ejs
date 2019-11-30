@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <title>List</title>
     <% include ../partials/header.ejs %>
     <h1 class="display-5"><%= result[0].store_name %></h1><br>
 </head>
 <body> 
         <div class="col-md-6">
-                <form action="/addToDb" method="POST">
+                <form action="/addToDb" id="addForm" method="POST">
                     <strong>Add to list: </strong><input type="text" class="itemName"  name="itemName" id="itemName" required>
                     <input type = "hidden" id="store" name="store" value="<%= store_id %>">
                     <button type="submit" value="submit">Add</button>
@@ -25,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% for(var i=0; i < result.length ; i++) {%>
+                <% for(var i=0; i < result.length; i++) {%>
                     <tr>
                         <th scope="row"><%= i + 1 %></th>
                         <td class="text-left"><%= result[i].item_name %></td>
@@ -34,16 +35,5 @@
             </tbody>
         </table>   
     </div> 
-    <!-- <script>
-        function addItemToTable() {
-            var item = document.getElementById(itemName).innerHTML;
-            const table = document.getElementById('#table');
-            const rowNumber = table.rows.length + 1;
-
-            const newRow = '<tr><td>' + rowNumber + '</td><td>' + item + '</td><tr>';
-            table.insertAdjacentHTML('beforeEnd', newRow);
-            item.innerHTML = "";
-        }
-    </script> -->
 </body>
 </html>
