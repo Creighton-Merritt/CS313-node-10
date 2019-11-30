@@ -40,6 +40,7 @@ function addToDb(req, res) {
         } else {
             console.log("Successfully added to database");
             console.log("Params", params);
+            res.render('pages/results');
         }
     });
 }
