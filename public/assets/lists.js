@@ -45,7 +45,6 @@ function addToDb(req, res) {
 }
 
 
-
 function getListByStore(id, callback) {
 	console.log("Getting list from DB with id: " + id);
 
