@@ -40,6 +40,7 @@ function addToDb(req, res) {
         } else {
             console.log("Successfully added to database");
             console.log("Params", params);
+            
             getListByStore(id, function(error, result) {
                 if (error || result == null) {
                     res.status(500).json({success:false, data: error});
