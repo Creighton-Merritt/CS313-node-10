@@ -10,8 +10,7 @@
 </head>
 <body> 
         <div class="col-md-6">
-                <!-- <form action="/addToDb" method="POST"> -->
-                    <form action="#" method="POST"></form>
+                <form action="/addToDb" method="POST">
                     <strong>Add to list: </strong><input type="text" class="itemName"  name="itemName" id="itemName" required>
                     <input type = "hidden" id="store" name="store" value="<%= store_id %>">
                     <button type="submit" value="submit" onclick="addItemToTable();">Add</button>
