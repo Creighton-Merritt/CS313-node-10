@@ -40,18 +40,17 @@ function addToDb(req, res) {
         } else {
             console.log("Successfully added to database");
             console.log("Params", params);
-        }
-    });
-
-    getListByStore(id, function(error, result) {
-        if (error || result == null) {
-            res.status(500).json({success:false, data: error});
-        } else {
-            console.log("Back from the database with store result: ", result);
-            const store_id = result[0].store_id;
-            console.log("Store id: " + store_id);
-            const params = {result: result, store_id: store_id};
-            res.render('pages/results', params);
+            getListByStore(id, function(error, result) {
+                if (error || result == null) {
+                    res.status(500).json({success:false, data: error});
+                } else {
+                    console.log("Back from the database with store result: ", result);
+                    const store_id = result[0].store_id;
+                    console.log("Store id: " + store_id);
+                    const params = {result: result, store_id: store_id};
+                    res.render('pages/results', params);
+                }
+            });
         }
     });
 
