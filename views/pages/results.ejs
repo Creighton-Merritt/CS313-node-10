@@ -13,7 +13,7 @@
                 <form action="/addToDb" method="POST">
                     <strong>Add to list: </strong><input type="text" class="itemName"  name="itemName" id="itemName" required>
                     <input type = "hidden" id="store" name="store" value="<%= store_id %>">
-                    <button type="submit" value="submit" onclick="addItemToTable();">Add</button>
+                    <button type="submit" value="submit">Add</button>
                   </form>
         </div><br>
     <div class="col-md-6">
@@ -34,7 +34,7 @@
             </tbody>
         </table>   
     </div> 
-    <script>
+    <!-- <script>
         function addItemToTable() {
             var item = document.getElementById(itemName).innerHTML;
             const table = document.getElementById('#table');
@@ -44,6 +44,6 @@
             table.insertAdjacentHTML('beforeEnd', newRow);
             item.innerHTML = "";
         }
-    </script>
+    </script> -->
 </body>
 </html>
