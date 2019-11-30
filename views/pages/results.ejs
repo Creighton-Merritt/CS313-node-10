@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link href= "/public/assets/list.css" rel="stylesheet" type="text/css"> -->
+    <script src="../../public/assets/results.js"></script>
     <title>List</title>
     <% include ../partials/header.ejs %>
     <h1 class="display-5"><%= result[0].store_name %></h1><br>
 </head>
 <body> 
         <div class="col-md-6">
-                <form action="/addToDb" method="POST">
-                    <strong>Add to list: </strong><input type="text" class="itemName"  name="itemName" id="itemName">
+                <!-- <form action="/addToDb" method="POST"> -->
+                    <form action="#" method="POST"></form>
+                    <strong>Add to list: </strong><input type="text" class="itemName"  name="itemName" id="itemName" required>
                     <input type = "hidden" id="store" name="store" value="<%= store_id %>">
-                    <button type="submit" value="submit">Add</button>
+                    <button type="submit" value="submit" onclick="addItemToTable()">Add</button>
                   </form>
         </div><br>
     <div class="col-md-6">
-        <table class="table table-striped">
+        <table class="table table-striped" id="table">
             <thead>
                 <tr>
                     <th scope="col-md-1">#</th>

@@ -1,6 +1,6 @@
 module.exports = {
     getStoreList,
-    addToDb
+    //addToDb
 };
 
 const { Pool } = require("pg");
@@ -24,32 +24,26 @@ function getStoreList(req, res) {
     });
 }
 
-function addToDb(req, res) {
-    const id = req.body.store;
-    const itemName = req.body.itemName;
-    console.log("Info from form: " + id);
-    console.log("Info from form: " + itemName);
 
-    addToList(id, itemName, function(error, result) {
-        if (error || result == null) {
-            res.status(500).json({success:false, data: error});
-        } else {
-            console.log("Added to db");
-        }
-    });
+// function addToDb(req, res) {
+//     const id = req.body.store;
+//     const itemName = req.body.itemName;
+//     console.log("Info from form: " + id);
+//     console.log("Info from form: " + itemName);
+//     const params = [itemName, id];
+//     const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
     
-    getListByStore(id, function(error, result) {
-        if (error || result == null) {
-            res.status(500).json({success:false, data: error});
-        } else {
-            console.log("Back from the database with store result: ", result);
-            const store_id = result[0].store_id;
-            console.log("Store id: " + store_id);
-            const params = {result: result, store_id: store_id};
-            res.render('pages/results', params);
-        }
-    });
-}
+//     pool.query(sql, params, function(err, result) {
+//         if (err) {
+//             console.log("Error in query: ")
+//             console.log(err);
+//         } else {
+//             console.log("Successfully added to database");
+//             console.log("Params", params);
+//         }
+//     });
+// }
+
 
 
 function getListByStore(id, callback) {
@@ -71,25 +65,4 @@ function getListByStore(id, callback) {
 		callback(null, result.rows);
 	});
 
-}
-
-
-function addToList(id, itemName, callback) {
-    console.log("In add to list");
-    const params = [itemName, id];
-    const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
-
-    pool.query(sql, params, function(err, result) {
-        if (err) {
-			console.log("Error in query: ")
-			console.log(err);
-			callback(err, null);
-		} else {
-            console.log("Successfully added to database");
-            console.log("Params", params);
-            console.log("end add");
-        }
-        callback(null, null, params);
-    });
-    
 }
