@@ -56,7 +56,7 @@
             console.log(result);
             var trHTML = '';
             $.each(result, function (i, item) {
-            trHTML += '<tr><th scope="row">' + (i + 1) + '</th><td class="text-left">' + result.itemname + '</td></tr>'
+            trHTML += '<tr><th scope="row">' + (i + 1) + '</th><td class="text-left">' + item.item_name + '</td></tr>'
             });
             $('#list').append(trHTML);
         } else {
