@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <script src="../../public/assets/result.js"></script> -->
+    <script type="text/javascript" src="../../public/result.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <title>List</title>
     <% include ../partials/header.ejs %>
@@ -37,32 +37,6 @@
         </table>   
     </div> 
 </body>
-<script>
-    function add() {
-        console.log("Enter add");
-        var itemname = $("#itemName").val();
-        var storeid = $("#store").val();
-        console.log(itemname);
-        console.log(storeid);
-
-        var params = {
-            itemname: itemname,
-            storeid: storeid
-        };
-
-        $.post("/addToDb", params, function(result) {
-        if (result) {
-            console.log(result);
-            var count = $('#table tr').length;
-            var trHTML = "";
-            trHTML += '<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + '</td></tr>';
-            $('#list').append(trHTML);
-        } else {
-            $("#list").text("Errir");
-        }
-    });
-}
-    </script>
 </html>
 
 

@@ -25,41 +25,6 @@ function getStoreList(req, res) {
 }
 
 
-function addToDb(req, res) {
-    const id = req.body.storeid;
-    const itemname = req.body.itemname;
-    console.log("Info from form: " + id);
-    console.log("Info from form: " + itemname);
-    const params = [itemname, id];
-    const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
-    
-    pool.query(sql, params, function(err, result) {
-        if (err) {
-            console.log("Error in query: ")
-            console.log(err);
-        } else {
-            console.log("Successfully added to database");
-            console.log("Params", params);
-            
-            getListByStore(id, function(error, result) {
-                if (error || result == null) {
-                    res.status(500).json({success:false, data: error});
-                } else {
-                    console.log("Back from the database with store result: ", result);
-                    const store_id = result[0].store_id;
-                    console.log("Store id: " + store_id);
-                    const params = {result: result, store_id: store_id};
-                    //res.render('pages/results', params);
-                    console.log(params)
-                    res.json(params);
-                }
-            });
-        }
-    });
-
-}
-
-
 function getListByStore(id, callback) {
 	console.log("Getting list from DB with id: " + id);
 
@@ -79,4 +44,26 @@ function getListByStore(id, callback) {
 		callback(null, result.rows);
 	});
 
+}
+
+
+function addToDb(req, res) {
+    const id = req.body.storeid;
+    const itemname = req.body.itemname;
+    console.log("Info from form: " + id);
+    console.log("Info from form: " + itemname);
+    const params = [itemname, id];
+    const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
+    
+    var result = {success: false};
+    pool.query(sql, params, function(err, result) {
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        } else {
+            result = {success: true};
+        }
+    });
+    
+    res.json(result);
 }
