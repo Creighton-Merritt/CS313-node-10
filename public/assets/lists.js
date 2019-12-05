@@ -26,11 +26,11 @@ function getStoreList(req, res) {
 
 
 function addToDb(req, res) {
-    const id = req.body.store;
-    const itemName = req.body.itemName;
+    const id = req.body.storeid;
+    const itemname = req.body.itemname;
     console.log("Info from form: " + id);
-    console.log("Info from form: " + itemName);
-    const params = [itemName, id];
+    console.log("Info from form: " + itemname);
+    const params = [itemname, id];
     const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
     
     pool.query(sql, params, function(err, result) {
@@ -49,7 +49,9 @@ function addToDb(req, res) {
                     const store_id = result[0].store_id;
                     console.log("Store id: " + store_id);
                     const params = {result: result, store_id: store_id};
-                    res.render('pages/results', params);
+                    //res.render('pages/results', params);
+                    console.log(params)
+                    result.json(params);
                 }
             });
         }
