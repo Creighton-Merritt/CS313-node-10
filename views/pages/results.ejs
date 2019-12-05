@@ -52,9 +52,11 @@
 
         $.post("/addToDb", params, function(result) {
         if (result) {
+            result = $.parseJSON(result);
+            console.log(result);
             var trHTML = '';
             $.each(result, function (i, item) {
-            trHTML += '<th scope="row">' + (i + 1) + '</th><td class="test-left">' + result.itemname + '</td></tr>'
+            trHTML += '<tr><th scope="row">' + (i + 1) + '</th><td class="text-left">' + result.itemname + '</td></tr>'
             });
             $('#list').append(trHTML);
         } else {
