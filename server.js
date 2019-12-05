@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express');
 const app = express();
 const getFullList = (require('./public/fullList.js'));
-const getStoreList = (require('./public/lists.js/index.js'));
+const getStoreList = (require('./public/lists.js'));
 //const bodyParser= require("body-parser");
 
 app.set('port', (process.env.PORT || 5000));
