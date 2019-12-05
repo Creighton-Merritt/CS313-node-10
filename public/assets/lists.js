@@ -51,7 +51,7 @@ function addToDb(req, res) {
                     const params = {result: result, store_id: store_id};
                     //res.render('pages/results', params);
                     console.log(params)
-                    result.json(params);
+                    res.json(params);
                 }
             });
         }

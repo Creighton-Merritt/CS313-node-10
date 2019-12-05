@@ -1,6 +1,6 @@
 function add() {
     console.log("Enter add");
-    var itemname = $("username").val();
+    var itemname = $("#username").val();
     var storeid = $("#store").val();
     console.log(itemname);
     console.log(store);
@@ -12,9 +12,9 @@ function add() {
 
     $.post("/addToDb", params, function(result) {
         if (result) {
-            $("list").text("Successfully added");
+            $("#list").text("Successfully added");
         } else {
-            $("list").text("Errir");
+            $("#list").text("Errir");
         }
     });
 }
