@@ -53,10 +53,9 @@
         $.post("/addToDb", params, function(result) {
         if (result) {
             console.log(result);
-            var trHTML = '';
-            $.each(result, function (i, item) {
-            trHTML += '<tr><th scope="row">' + (i + 1) + '</th><td class="text-left">' + item.item_name + '</td></tr>'
-            });
+            var count = $('#table tr').length;
+            var trHTML = "";
+            trHTML += '<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + '</td></tr>';
             $('#list').append(trHTML);
         } else {
             $("#list").text("Errir");
