@@ -42,12 +42,12 @@ CREATE TABLE groceryItems (
     store_id INTEGER REFERENCES stores(id)
 );
 
-INSERT INTO stores (name) VALUES
+INSERT INTO stores (store_name) VALUES
 ('Smiths'),
 ('Costco'),
 ('Amazon');
 
-INSERT INTO groceryItems (name, store_id) VALUES
+INSERT INTO groceryItems (item_name, store_id) VALUES
 ('Peppermint pretzels', 2),
 ('Toilet paper', 2),
 ('Milk', 1),

@@ -1,4 +1,5 @@
 function add() {
+    console.log("Enter add");
     var itemname = $("username").val();
     var storeid = $("#store").val();
     console.log(itemname);
