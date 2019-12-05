@@ -52,7 +52,6 @@
 
         $.post("/addToDb", params, function(result) {
         if (result) {
-            result = $.parseJSON(result);
             console.log(result);
             var trHTML = '';
             $.each(result, function (i, item) {
