@@ -2,8 +2,8 @@ require('dotenv').config();
 const path = require('path')
 const express = require('express');
 const app = express();
-const getFullList = (require('./public/fullList.js'));
-const getStoreList = (require('./public/lists.js'));
+const getFullList = (require('./fullList.js'));
+const getStoreList = (require('./lists.js'));
 //const bodyParser= require("body-parser");
 
 app.set('port', (process.env.PORT || 5000));
