@@ -62,8 +62,8 @@ function addToDb(req, res) {
             console.log(err);
         } else {
             result = {success: true};
+            res.json(result);
         }
     });
-    
-    res.json(result);
+
 }
