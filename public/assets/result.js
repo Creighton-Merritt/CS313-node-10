@@ -12,7 +12,11 @@ function add() {
 
     $.post("/addToDb", params, function(result) {
         if (result) {
-            $("#list").text("Successfully added");
+            var trHTML = '';
+            $.each(result, function (i, item) {
+            trHTML += '<th scope="row">' + (i + 1) + '</th><td class="test-left">' + result.itemname + '</td></tr>'
+            });
+            $('#list').append(trHTML);
         } else {
             $("#list").text("Errir");
         }
