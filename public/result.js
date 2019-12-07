@@ -23,25 +23,20 @@ function add() {
 });
 }
 
-// function getList() {
+function getList() {
+    console.log("Step 1");
+    var id = $("#stores").val();
+    console.log(id);
+    var params = {
+        id: id
+    };
 
-// }
-
-$(document).ready(function() {
-    $("#getStore").click(function() {
-        console.log("Enter get");
-        var id = $("#stores").val();
-        console.log(id);
-        var params = {
-            id: id
-        };
-
-        $.get("/stores", params, function(result) {
-            if (result.success) {
-                console.log("Back from get: ", result);
-            } else {
-                $("#list").text("Error");
-            }
-        });
+    $.get("/stores", params, function(result) {
+        if (result.success) {
+            console.log("Back from get: ", result);
+        } else {
+            $("#list").text("Error");
+        }
     });
-});
+}
+    
