@@ -10,6 +10,8 @@ function add() {
         storeid: storeid
     };
 
+    document.getElementById("itemName").value = "";
+
     $.post("/addToDb", params, function(result) {
     if (result.success) {
         console.log(result);
@@ -17,7 +19,6 @@ function add() {
         var trHTML = "";
         trHTML += '<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + '</td></tr>';
         $('#list').append(trHTML);
-        document.getElementById("itemName").innerHTML = "";
     } else {
         $("#list").text("Error");
     }
