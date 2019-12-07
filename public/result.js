@@ -22,3 +22,26 @@ function add() {
     }
 });
 }
+
+// function getList() {
+
+// }
+
+$(document).ready(function() {
+    $("#getStore").click(function() {
+        console.log("Enter get");
+        var id = $("#stores").val();
+        console.log(id);
+        var params = {
+            id: id
+        };
+
+        $.get("/stores", params, function(result) {
+            if (result.success) {
+                console.log("Back from get: ", result);
+            } else {
+                $("#list").text("Error");
+            }
+        });
+    });
+});
