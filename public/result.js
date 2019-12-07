@@ -22,21 +22,3 @@ function add() {
     }
 });
 }
-
-function getList() {
-    console.log("Step 1");
-    var id = $("#stores").val();
-    console.log(id);
-    var params = {
-        id: id
-    };
-
-    $.get("/stores", params, function(result) {
-        if (result.success) {
-            console.log("Back from get: ", result);
-        } else {
-            $("#list").text("Error");
-        }
-    });
-}
-    
