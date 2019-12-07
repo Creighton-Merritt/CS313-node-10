@@ -17,6 +17,7 @@ function add() {
         var trHTML = "";
         trHTML += '<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + '</td></tr>';
         $('#list').append(trHTML);
+        document.getElementById("itemName").innerHTML = "";
     } else {
         $("#list").text("Error");
     }
