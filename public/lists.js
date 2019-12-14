@@ -1,5 +1,5 @@
 module.exports = {
-    getListByStore,
+    getStoreList,
     addToDb
 };
 
@@ -31,26 +31,26 @@ const pool = new Pool({connectionString: connectionString});
 // }
 
 
-function getListByStore(id, callback) {
-	console.log("Getting list from DB with id: " + id);
+// function getListByStore(id, callback) {
+// 	console.log("Getting list from DB with id: " + id);
 
-    const sql = "SELECT item_name, store_name, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
+//     const sql = "SELECT item_name, store_name, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
 	
-	const params = [id];
+// 	const params = [id];
 
-	pool.query(sql, params, function(err, result) {
-		if (err) {
-			console.log("Error in query: ")
-			console.log(err);
-			callback(err, null);
-		}
+// 	pool.query(sql, params, function(err, result) {
+// 		if (err) {
+// 			console.log("Error in query: ")
+// 			console.log(err);
+// 			callback(err, null);
+// 		}
 
-		console.log("Found result for store: " + JSON.stringify(result.rows));
+// 		console.log("Found result for store: " + JSON.stringify(result.rows));
 
-		callback(null, result.rows);
-	});
+// 		callback(null, result.rows);
+// 	});
 
-}
+// }
 
 
 function addToDb(req, res) {
