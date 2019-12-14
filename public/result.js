@@ -35,8 +35,6 @@ $(document).ready(() => {
             dataType: 'json',
             success: (data) => {
                 console.log('ajax success!', data);
-                $('#tableBody').html('Here is where the data should be');
-                $('#tableBody').html('<% include ./results.ejs %>')
                 var rows = JSON.parse(data);
                 for (i=0 ; i < rows.length ; i++){
                     var num = (i + 1);
