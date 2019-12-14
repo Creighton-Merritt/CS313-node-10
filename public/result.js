@@ -24,3 +24,25 @@ function add() {
     }
 });
 }
+
+function storeLists() {
+    var storeid = $("#stores").val();
+    console.log("From chooseList", storeid);
+
+    $.get('/stores', storeid, function(result) {
+        if (result.success) {
+            console.log("success in storeLists", result);
+        
+            var rows = JSON.parse(result);
+            for (i=0 ; i < rows.length ; i++){
+                var num = (i + 1);
+                $('#storeList').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+            }
+        }
+    });
+}
+
+for(var i=0; i < result.length; i++) {
+    var num = (i + 1);
+    $('#storeList').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+}

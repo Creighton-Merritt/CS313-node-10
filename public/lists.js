@@ -8,7 +8,7 @@ const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
 function getStoreList(req, res) {
-    const id = req.query.stores;
+    const id = req.body.storeid;
     console.log("Info from form: " + id);
     
     getListByStore(id, function(error, result) {
@@ -18,13 +18,8 @@ function getStoreList(req, res) {
             console.log("Back from the database with store result: ", result);
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
-            const params = {result: result, store_id: store_id};
-           // console.log("testing new params json", params);
-            for(var i=0; i < result.length; i++) {
-                var num = (i + 1);
-                $('#storeList').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
-            }
-           // res.json(params);
+           console.log("testing new params json", params);
+           res.json(params);
         }
     });
 
