@@ -27,7 +27,6 @@ function add() {
 
 $(document).ready(() => {
     $('#storeSubmit').click(() => {
-        $('#tableBody').html("");
         const requestURL = 'stores/' + $('#stores :selected').val();
         console.log("Request url", requestURL);
         $.ajax({
@@ -35,8 +34,8 @@ $(document).ready(() => {
             type: 'GET',
             dataType: 'json',
             success: (result) => {
+                $('#tableBody').html("");
                 console.log('ajax success!', result);
-                
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
                     $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
