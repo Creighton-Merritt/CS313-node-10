@@ -47,12 +47,12 @@ const pool = new Pool({connectionString: connectionString});
 // }
 
 function getStoreList(req, res, next) {
-    const id = req.query.storeid;
+    const storeId = req.body.storeid;
 
     const sql = "SELECT item_name, store_name, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
 	
-    const params = [id];
-    console.log("Info from form: " + id);
+    const params = [storeId];
+    console.log("Info from form: " + storeId);
 
 	pool.query(sql, params, function(err, result) {
 		if (err) {
