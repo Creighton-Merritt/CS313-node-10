@@ -26,28 +26,6 @@ function add() {
 });
 }
 
-$(document).ready(() => {
-    $('#storeSubmit').click(() => {
-        const requestURL = 'stores/' + $('#stores :selected').val();
-        console.log("Request url", requestURL);
-        $.ajax({
-            url: requestURL,
-            type: 'GET',
-            dataType: 'json',
-            success: (result) => {
-                $('#tableBody').html("");
-                console.log(result[0].store_id);
-                console.log('ajax success!', result);
-                for (i=0 ; i < result.length ; i++) {
-                    var num = (i + 1);
-                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
-                }
-                $('#hiddenStoreId').attr("value", result[0].store_id);
-                $('#adding').css("visibility", "visible");
-            }
-        });
-   });
-});
 
 
 $(document).ready(() => {
@@ -68,6 +46,8 @@ $(document).ready(() => {
                 }
                 
                 $('#stores').prop('selectedIndex', null);
+                $('#hiddenStoreId').attr("value", result[0].store_id);
+                $('#adding').css("visibility", "visible");
             }
         });
    });
