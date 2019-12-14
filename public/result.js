@@ -27,10 +27,10 @@ function add() {
 
 $(document).ready(function() {
     $('#storeSubmit').click(function() {
-        var storeSelected = $("#stores :selected").val();
-        console.log("From chooseList", storeSelected);
+        var storeid = $("#stores :selected").val();
+        console.log("From chooseList", storeid);
     
-        $.get('/stores', storeSelected, function(result) {
+        $.get('/stores', storeid, function(result) {
             if (result.success) {
                 console.log("success in storeLists", result);
             
