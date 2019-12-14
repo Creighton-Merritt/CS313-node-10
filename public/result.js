@@ -28,9 +28,12 @@ function add() {
 $(document).ready(function() {
     $('#storeSubmit').click(function() {
         var storeid = $("#stores :selected").val();
-        console.log("From chooseList", storeid);
+        var params = {
+            storeid: storeid
+        };
+        console.log("From chooseList", params);
     
-        $.get('/stores', storeid, function(result) {
+        $.get("/stores", params, function(result) {
             if (result.success) {
                 console.log("success in storeLists", result);
             
