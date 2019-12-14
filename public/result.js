@@ -25,12 +25,22 @@ function add() {
 });
 }
 
-// $(document).ready(function() {
-//     $('#storeSubmit').click(function() {
-//         var storeid = $("#stores :selected").val();
-//         console.log("From chooseList", storeid);
-    
-//         $.get("/get-store", storeid, function(result) {
+$(document).ready(() => {
+    $('#storeSubmit').click(() => {
+        const requestURL = 'stores/' + $('#stores :selected').val();
+        console.log("Request url", requestURL);
+        $.ajax({
+            url: 'requestURL',
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+                console.log('ajax success!', data);
+                $('#tableBody').html('Here is where the data should be');
+            }
+    });
+   });
+});
+
 //             if (result.success) {
 //                 console.log("success in storeLists", result);
                 

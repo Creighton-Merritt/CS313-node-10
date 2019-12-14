@@ -7,8 +7,8 @@ const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
-function getStoreList(req, res) {
-    const id = req.query.stores;
+function getStoreList(id, req, res) {
+    const id = req.params.id;
     console.log("Info from form: " + id);
     
     getListByStore(id, function(error, result) {
@@ -23,7 +23,8 @@ function getStoreList(req, res) {
                 store_id: store_id,
                 result: result
             };
-            res.render('pages/results', params);
+            console.log("params", params);
+            res.json(params);
         }
     });
 

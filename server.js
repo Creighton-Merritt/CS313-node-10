@@ -16,7 +16,13 @@ app.set('view engine', 'ejs')
 
 
 app.get('/list', getFullList);
-app.get('/stores', getStoreList.getStoreList);
+app.get('/stores/:storeId', (req, res) => {
+    const stores = req.params.storeId;
+    const result = getStoreList.getStoreList(stores);
+    console.log("Result from server.js", result);
+    res.send(result);
+});
+
 app.post('/addToDb', getStoreList.addToDb);
 app.get('/', function(req, res) {
     res.render('pages/chooseList')
