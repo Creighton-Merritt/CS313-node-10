@@ -1,3 +1,6 @@
+$(window).onload(function() {
+    $('#adding').hide();
+});
 
 function add() {
     console.log("Enter add");
