@@ -18,8 +18,8 @@ function getStoreList(req, res) {
             console.log("Back from the database with store result: ", result);
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
-           console.log("testing new params json", params);
-           res.json(params);
+            console.log("testing new params json", params);
+            res.json(params);
         }
     });
 
