@@ -25,9 +25,18 @@
       <button type="submit" value="submit">View full list </button>
     </form>
   </div> 
-  <div id="list">
-    <% include ../partials/results.ejs %>
+  <div>
+    <table class="table table-striped" id="table">
+      <thead>
+          <tr>
+              <th scope="col-md-1">#</th>
+              <th scope="col-md-3">Item</th>
+          </tr>
+      </thead>
+      <tbody id="storeList">
 
+      </tbody>
+    </table>   
   </div>
 
 

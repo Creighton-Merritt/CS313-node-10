@@ -19,11 +19,15 @@ function getStoreList(req, res) {
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
             const params = {result: result, store_id: store_id};
-            console.log("testing new params json", params);
-            res.json(params);
+           // console.log("testing new params json", params);
+            for(var i=0; i < result.length; i++) {
+                var num = (i + 1);
+                $('#storeList').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+            }
+           // res.json(params);
         }
     });
-    
+
 }
 
 
