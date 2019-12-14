@@ -3,8 +3,12 @@ const path = require('path')
 const express = require('express');
 const app = express();
 const getFullList = (require('./public/fullList.js'));
-const getStoreList = (require('./public/lists.js'));
+//const getStoreList = (require('./public/lists.js'));
 //const bodyParser= require("body-parser");
+const { Pool } = require("pg");
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({connectionString: connectionString});
+
 
 app.set('port', (process.env.PORT || 5000));
 //app.use(bodyParser.urlencoded({extended:true}));
@@ -17,10 +21,24 @@ app.set('view engine', 'ejs')
 
 app.get('/list', getFullList);
 app.get('/stores/:storeId', (req, res) => {
-    const stores = req.params.storeId;
-    const result = getStoreList.getStoreList(stores);
-    console.log("Result from server.js", result);
-    res.send(result);
+    const id = req.params.storeId;
+    
+    getListByStore(id, function(error, result) {
+        if (error || result == null) {
+            res.status(500).json({success:false, data: error});
+        } else {
+            console.log("Back from the database with store result: ", result);
+            const store_id = result[0].store_id;
+            console.log("Store id: " + store_id);
+            console.log("testing new params json", result);
+            const params = {
+                store_id: store_id,
+                result: result
+            };
+            console.log("params", params);
+            res.send(params);
+        }
+    });
 });
 
 app.post('/addToDb', getStoreList.addToDb);
@@ -32,3 +50,24 @@ app.listen(app.get('port'), function() {
     console.log('Node app is running with nodemon on port', app.get('port'));
   });
 
+
+function getListByStore(id, callback) {
+	console.log("Getting list from DB with id: " + id);
+
+    const sql = "SELECT item_name, store_name, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
+	
+	const params = [id];
+
+	pool.query(sql, params, function(err, result) {
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			callback(err, null);
+		}
+
+		console.log("Found result for store: " + JSON.stringify(result.rows));
+
+		callback(null, result.rows);
+	});
+
+}
