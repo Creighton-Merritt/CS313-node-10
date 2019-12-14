@@ -25,20 +25,23 @@ function add() {
 });
 }
 
-function storeLists() {
-    var storeid = $(".stores option:selected").val();
-    console.log("From chooseList", storeid);
-
-    $.get('/stores', storeid, function(result) {
-        if (result.success) {
-            console.log("success in storeLists", result);
-        
-            var rows = JSON.parse(result);
-            for (i=0 ; i < rows.length ; i++){
-                var num = (i + 1);
-                $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+$(document).ready(function() {
+    $('#storeSubmit').click(function() {
+        var storeSelected = $("#stores :selected").val();
+        console.log("From chooseList", storeSelected);
+    
+        $.get('/stores', storeSelected, function(result) {
+            if (result.success) {
+                console.log("success in storeLists", result);
+            
+                var rows = JSON.parse(result);
+                for (i=0 ; i < rows.length ; i++){
+                    var num = (i + 1);
+                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+                }
             }
-        }
+        });
     });
-}
+});
+
 
