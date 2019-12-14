@@ -35,10 +35,9 @@ $(document).ready(() => {
             dataType: 'json',
             success: (data) => {
                 console.log('ajax success!', data);
-                var rows = JSON.parse(data);
-                for (i=0 ; i < rows.length ; i++){
+                for (i=0 ; i < data.length ; i++){
                     var num = (i + 1);
-                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + rows[i].item_name + '</td></tr>');
+                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + data[i].item_name + '</td></tr>');
                 }
             }
         });
