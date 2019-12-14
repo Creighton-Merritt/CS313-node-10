@@ -19,7 +19,7 @@ function getStoreList(req, res) {
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
             const params = {result: result, store_id: store_id};
-            console.log(params);
+            console.log("testing new params json", params);
             res.json(params);
         }
     });
