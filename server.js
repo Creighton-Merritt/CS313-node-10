@@ -7,7 +7,7 @@ const getStoreList = (require('./public/lists.js'));
 const bodyParser= require("body-parser");
 
 app.set('port', (process.env.PORT || 5000));
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());       
 //app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
