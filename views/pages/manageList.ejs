@@ -24,15 +24,15 @@
       <button type="submit" id="storeSubmit" value="submit">View list</button>
   </div> 
   <br>
-  <div id="adding">
-    <strong>Add to list: </strong><input type="text" class="itemName"  name="itemName" id="itemName" required>
-    <input type = "hidden" id="hiddenStoreId" name="store">
-    <button type="submit" onclick="add();">Add</button>
-  </div>
   <div>
     <br><br>
     <h2 id="storeName">
     </h2>
+    <div id="adding">
+      <strong>Add to this list: </strong><input type="text" class="itemName"  name="itemName" id="itemName" required>
+      <input type = "hidden" id="hiddenStoreId" name="store">
+      <button type="submit" onclick="add();">Add</button>
+    </div>
     <table class="table table-striped" id="table">
       <thead>
           <tr>
