@@ -26,7 +26,7 @@ function add() {
 }
 
 function storeLists() {
-    var storeid = $("#stores").val();
+    var storeid = $(".stores option:selected").val();
     console.log("From chooseList", storeid);
 
     $.get('/stores', storeid, function(result) {
@@ -36,7 +36,7 @@ function storeLists() {
             var rows = JSON.parse(result);
             for (i=0 ; i < rows.length ; i++){
                 var num = (i + 1);
-                $('#storeList').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+                $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
             }
         }
     });
