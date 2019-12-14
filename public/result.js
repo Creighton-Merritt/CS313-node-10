@@ -2,7 +2,7 @@
 function add() {
     console.log("Enter add");
     var itemname = $("#itemName").val();
-    var storeid = $("#store").val();
+    var storeid = $("#hiddenStoreId").val();
     console.log(itemname);
     console.log(storeid);
 
