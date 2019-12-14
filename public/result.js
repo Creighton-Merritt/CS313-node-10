@@ -57,7 +57,7 @@ $(document).ready(() => {
             success: (result) => {
                 $('#tableBody').html("");
                 console.log(result[0].store_name);
-                $('storeName').html(result[0].store_name);
+                $('#storeName').html(result[0].store_name);
                 console.log('ajax success!', result);
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
