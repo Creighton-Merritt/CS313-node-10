@@ -47,7 +47,7 @@ const pool = new Pool({connectionString: connectionString});
 // }
 
 function getStoreList(req, res, next) {
-    const id = req.body.storeid;
+    const id = req.query.storeid;
 
     const sql = "SELECT item_name, store_name, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
 	
