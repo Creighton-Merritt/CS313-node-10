@@ -36,7 +36,7 @@ $(document).ready(function() {
         $.get("/stores", params, function(result) {
             if (result.success) {
                 console.log("success in storeLists", result);
-            
+                
                 var rows = JSON.parse(result);
                 for (i=0 ; i < rows.length ; i++){
                     var num = (i + 1);
