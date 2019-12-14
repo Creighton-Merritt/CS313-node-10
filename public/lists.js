@@ -11,7 +11,7 @@ function getStoreList(req, res) {
     const id = req.query.storeid;
     console.log("Info from form: " + id);
     
-    getListByStore(id, function(error, result) {
+    getListByStore(id, function(error, result, next) {
         if (error || result == null) {
             res.status(500).json({success:false, data: error});
         } else {
@@ -19,7 +19,8 @@ function getStoreList(req, res) {
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
             console.log("testing new params json", result);
-            res.send(result);
+            res.json(result);
+            next();
         }
     });
 
