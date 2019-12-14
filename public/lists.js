@@ -7,7 +7,7 @@ const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
-function getStoreList(req, res) {
+function getStoreList(req, res, next) {
     const id = req.query.storeid;
     console.log("Info from form: " + id);
     
@@ -19,10 +19,10 @@ function getStoreList(req, res) {
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
             console.log("testing new params json", result);
-            res.json(result);
-            next();
+            res.send(result);
         }
     });
+    next();
 
 }
 
