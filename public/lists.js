@@ -8,7 +8,7 @@ const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
 
 function getStoreList(req, res, next) {
-    const id = req.query.storeid;
+    const id = req.body.storeid;
     console.log("Info from form: " + id);
     
     getListByStore(id, function(error, result) {
