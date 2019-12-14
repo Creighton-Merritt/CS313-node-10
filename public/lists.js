@@ -1,5 +1,5 @@
 module.exports = {
-    getStoreList,
+    // getStoreList,
     addToDb
 };
 
