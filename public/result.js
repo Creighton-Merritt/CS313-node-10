@@ -33,7 +33,7 @@ $(document).ready(function() {
         };
         console.log("From chooseList", params);
     
-        $.get("/stores", params, function(result) {
+        $.get("/get-store", params, function(result) {
             if (result.success) {
                 console.log("success in storeLists", result);
                 

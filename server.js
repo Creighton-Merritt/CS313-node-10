@@ -4,10 +4,10 @@ const express = require('express');
 const app = express();
 const getFullList = (require('./public/fullList.js'));
 const getStoreList = (require('./public/lists.js'));
-//const bodyParser= require("body-parser");
+const bodyParser= require("body-parser");
 
 app.set('port', (process.env.PORT || 5000));
-//app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());       
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
@@ -16,7 +16,7 @@ app.set('view engine', 'ejs')
 
 
 app.get('/list', getFullList);
-app.get('/stores', getStoreList.getStoreList);
+app.get('/get-store', getStoreList.getStoreList);
 app.post('/addToDb', getStoreList.addToDb);
 app.get('/', function(req, res) {
     res.render('pages/chooseList')
