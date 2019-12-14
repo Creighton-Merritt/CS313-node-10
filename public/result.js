@@ -36,6 +36,7 @@ $(document).ready(() => {
             success: (data) => {
                 console.log('ajax success!', data);
                 for (i=0 ; i < data.length ; i++){
+                    console.log('Enter for loop');
                     var num = (i + 1);
                     $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + data[i].item_name + '</td></tr>');
                 }
