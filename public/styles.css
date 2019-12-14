@@ -7,17 +7,10 @@ body {
   margin-left: 5%;
 }
 
-table {
+#table {
   border-collapse: collapse;
   width: 70%;
 }
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-} 
 
 td {
   text-overflow: ellipsis;
