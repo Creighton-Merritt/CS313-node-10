@@ -19,7 +19,8 @@ function getStoreList(req, res) {
             const store_id = result[0].store_id;
             console.log("Store id: " + store_id);
             const params = {result: result, store_id: store_id};
-            res.render('pages/results', params);
+            console.log(params);
+            res.json(params);
         }
     });
 }
