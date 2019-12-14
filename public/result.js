@@ -25,23 +25,23 @@ function add() {
 });
 }
 
-$(document).ready(function() {
-    $('#storeSubmit').click(function() {
-        var storeid = $("#stores :selected").val();
-        console.log("From chooseList", storeid);
+// $(document).ready(function() {
+//     $('#storeSubmit').click(function() {
+//         var storeid = $("#stores :selected").val();
+//         console.log("From chooseList", storeid);
     
-        $.get("/get-store", storeid, function(result) {
-            if (result.success) {
-                console.log("success in storeLists", result);
+//         $.get("/get-store", storeid, function(result) {
+//             if (result.success) {
+//                 console.log("success in storeLists", result);
                 
-                var rows = JSON.parse(result);
-                for (i=0 ; i < rows.length ; i++){
-                    var num = (i + 1);
-                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
-                }
-            }
-        });
-    });
-});
+//                 var rows = JSON.parse(result);
+//                 for (i=0 ; i < rows.length ; i++){
+//                     var num = (i + 1);
+//                     $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+//                 }
+//             }
+//         });
+//     });
+// });
 
 
