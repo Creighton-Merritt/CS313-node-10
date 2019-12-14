@@ -33,12 +33,12 @@ $(document).ready(() => {
             url: requestURL,
             type: 'GET',
             dataType: 'json',
-            success: (data) => {
-                console.log('ajax success!', data);
-                for (i=0 ; i < data.length ; i++){
+            success: (result) => {
+                console.log('ajax success!', result);
+                for (i=0 ; i < result.length ; i++) {
                     console.log('Enter for loop');
                     var num = (i + 1);
-                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + data[i].item_name + '</td></tr>');
+                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
                 }
             }
         });
