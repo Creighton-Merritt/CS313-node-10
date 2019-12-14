@@ -23,6 +23,11 @@
       </select>
       <button type="submit" id="storeSubmit" value="submit">View list</button>
   </div> 
+  <div id="adding">
+    <strong>Add to list: </strong><input type="text" class="itemName"  name="itemName" id="itemName" required>
+    <input type = "hidden" id="hiddenStoreId" name="store">
+    <button type="submit" onclick="add();">Add</button>
+  </div>
   <div>
     <br><br>
     <h2 id="storeName">
@@ -43,3 +48,6 @@
 
 </body>
 </html>
+
+
+<input type = "hidden" id="store" name="store" value="<%= store_id %>">

@@ -1,3 +1,4 @@
+
 function add() {
     console.log("Enter add");
     var itemname = $("#itemName").val();
@@ -35,11 +36,14 @@ $(document).ready(() => {
             dataType: 'json',
             success: (result) => {
                 $('#tableBody').html("");
+                console.log(result[0].store_id);
                 console.log('ajax success!', result);
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
                     $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
                 }
+                $('#hiddenStoreId').attr("value", result[0].store_id);
+                $('#adding').show();
             }
         });
    });
@@ -68,3 +72,4 @@ $(document).ready(() => {
         });
    });
 });
+

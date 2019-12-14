@@ -31,7 +31,7 @@ app.get('/stores/:storeId', (req, res) => {
 
 app.post('/addToDb', getStoreList.addToDb);
 app.get('/', function(req, res) {
-    res.render('pages/chooseList')
+    res.render('pages/manageList')
 });
 
 app.listen(app.get('port'), function() {
