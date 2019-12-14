@@ -1,6 +1,3 @@
-$(window).onload(function() {
-    $('#adding').hide();
-});
 
 function add() {
     console.log("Enter add");
@@ -46,7 +43,7 @@ $(document).ready(() => {
                     $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
                 }
                 $('#hiddenStoreId').attr("value", result[0].store_id);
-                $('#adding').show();
+                $('#adding').css("visibility", "visible");
             }
         });
    });
