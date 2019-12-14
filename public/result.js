@@ -30,7 +30,7 @@ $(document).ready(() => {
         const requestURL = 'stores/' + $('#stores :selected').val();
         console.log("Request url", requestURL);
         $.ajax({
-            url: 'requestURL',
+            url: requestURL,
             type: 'GET',
             dataType: 'json',
             success: (data) => {
