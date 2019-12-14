@@ -42,7 +42,3 @@ function storeLists() {
     });
 }
 
-for(var i=0; i < result.length; i++) {
-    var num = (i + 1);
-    $('#storeList').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
-}
