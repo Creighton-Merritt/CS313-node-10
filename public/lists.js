@@ -23,6 +23,7 @@ function getStoreList(req, res) {
             res.json(params);
         }
     });
+    
 }
 
 
