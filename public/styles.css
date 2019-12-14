@@ -6,3 +6,7 @@ body {
 #table, button, strong {
   margin-left: 5%;
 }
+
+table {
+  width: 400px;
+}
