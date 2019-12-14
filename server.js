@@ -3,7 +3,8 @@ const path = require('path')
 const express = require('express');
 const app = express();
 const getFullList = (require('./public/fullList.js'));
-const getStoreList = (require('./public/lists.js'));
+const addToDb = (require('./public/lists.js'));
+const getListByStore = (require('./public/lists.js'));
 //const bodyParser= require("body-parser");
 const { Pool } = require("pg");
 const connectionString = process.env.DATABASE_URL;
@@ -33,7 +34,7 @@ app.get('/stores/:storeId', (req, res) => {
     });
 });
 
-app.post('/addToDb', getStoreList.addToDb);
+app.post('/addToDb', addToDb);
 app.get('/', function(req, res) {
     res.render('pages/chooseList')
 });
@@ -43,23 +44,3 @@ app.listen(app.get('port'), function() {
   });
 
 
-function getListByStore(id, callback) {
-	console.log("Getting list from DB with id: " + id);
-
-    const sql = "SELECT item_name, store_name, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
-	
-	const params = [id];
-
-	pool.query(sql, params, function(err, result) {
-		if (err) {
-			console.log("Error in query: ")
-			console.log(err);
-			callback(err, null);
-		}
-
-		console.log("Found result for store: " + JSON.stringify(result.rows));
-
-		callback(null, result.rows);
-	});
-
-}
