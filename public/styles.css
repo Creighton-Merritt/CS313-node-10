@@ -29,3 +29,7 @@ h2 {
   /* margin-right:10px; */
   display: inline;
 }
+
+#addbutton {
+  display: inline;
+}
