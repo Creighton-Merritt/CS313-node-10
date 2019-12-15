@@ -33,7 +33,7 @@ h2 {
   margin-right: 1px;
 }
 
-#addbutton {
+#addbutton, #delsel {
   display: inline;
   margin-left: 1px;
 }

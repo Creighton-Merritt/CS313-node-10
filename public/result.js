@@ -29,7 +29,6 @@ function add() {
 }
 
 
-
 $(document).ready(() => {
     $('#storeSubmit').click(() => {
         const requestURL = 'stores/' + $('#stores :selected').val();
@@ -57,5 +56,13 @@ $(document).ready(() => {
     $('#checkall').change(function() {
         $('.checkitem').prop("checked", $(this).prop("checked"))
     })
-});
+    $('#delsel').click(function() {
+        var item_id = $('.checkitem:checked').map(function() {
+            return $(this).val();
+        }).get().join(' ');
+        var params = {item_id: item_id};
+        console.log("Delete params", params);
+        //$.post('/deletefromdb', params, function(result) {
 
+    });
+});

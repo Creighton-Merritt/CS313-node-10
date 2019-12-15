@@ -30,7 +30,7 @@ app.get('/stores/:storeId', (req, res) => {
 });
 
 app.post('/addToDb', getStoreList.addToDb);
-
+//app.post('/deletefromdb', function(req, res))
 
 app.get('/', function(req, res) {
     res.render('pages/manageList')
@@ -64,23 +64,12 @@ function getListByStore(id, callback) {
 
 }
 
-function addToDb(req, res) {
-    const id = req.body.storeid;
-    const itemname = req.body.itemname;
-    console.log("Info from form: " + id);
-    console.log("Info from form: " + itemname);
-    const params = [itemname, id];
-    const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
-    
-    var result = {success: false};
-    pool.query(sql, params, function(err, result) {
-        if (err) {
-            console.log("Error in query: ")
-            console.log(err);
-        } else {
-            result = {success: true};
-            res.json(result);
-        }
-    });
+// function deletefromdb(id, callback) {
+//     console.log("Deleting from db", + id)
 
-}
+//     var myid = id;
+//     var items = str_replace(' ', ',', $myid);
+//     console.log("new items string", items);
+//     const sql = "DELETE FROM groceryItems where id in($1)";
+
+// }
