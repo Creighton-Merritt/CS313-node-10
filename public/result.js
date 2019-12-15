@@ -17,11 +17,10 @@ function add() {
     if (result.success) {
         console.log(result);
         var count = $('#table tr').length;
-        var trHTML = "";
-        trHTML += '<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + '</td></tr>';
-        $('#list').append(trHTML);
+        console.log("Count", count);
+        $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + '</td></tr>');
     } else {
-        $("#list").text("Error");
+        $('#tableBody').text("Error");
     }
 });
 }
