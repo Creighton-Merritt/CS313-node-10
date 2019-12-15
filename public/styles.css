@@ -13,13 +13,11 @@ body {
 
 #table {
   border-collapse: collapse;
-  width: 70%;
+  width: auto;
 }
 
 td {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  width: auto;
 }
 
 h2 {
@@ -40,7 +38,6 @@ h2 {
   margin-left: 1px;
 }
 
-#thirdcol {
+#thirdcol, .checkitem {
   text-align: center;
-  width: 5;
 }
