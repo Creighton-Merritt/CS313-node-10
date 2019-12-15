@@ -43,7 +43,7 @@ $(document).ready(() => {
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
                     $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
-                    '</td><td><input type="checkbox" class="checkitem" value="' + num + '"></td></tr>');
+                    '</td><td><input type="checkbox" class="checkitem" value="' + i + '"></td></tr>');
                 }
                 
                 $('#stores').prop('selectedIndex', null);

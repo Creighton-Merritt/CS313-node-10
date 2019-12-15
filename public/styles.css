@@ -39,5 +39,5 @@ h2 {
 }
 
 #thirdcol, .checkitem {
-  text-align: center;
+  align-content: center;
 }
