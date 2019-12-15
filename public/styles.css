@@ -7,6 +7,10 @@ body {
   margin-left: 5%;
 }
 
+#select {
+  margin-left:2%;
+}
+
 #table {
   border-collapse: collapse;
   width: 70%;
@@ -19,14 +23,11 @@ td {
 }
 
 h2 {
-  /* float: left; */
   display: inline;
 }
 
 #adding {
   visibility: hidden;
-  /* float: right; */
-  /* margin-right:10px; */
   display: inline;
 }
 
