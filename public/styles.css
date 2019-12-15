@@ -13,7 +13,7 @@ body {
 
 #table {
   border-collapse: collapse;
-  width: auto;
+  width: 60%;
 }
 
 td {
