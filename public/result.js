@@ -18,7 +18,8 @@ function add() {
         console.log(result);
         var count = $('#table tr').length;
         console.log("Count", count);
-        $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + '</td></tr>');
+        $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
+        '</td><td><input type="checkbox" class="checkitem" value="' + count + '"></td></tr>');
     } else {
         $('#tableBody').text("Error");
     }
@@ -41,7 +42,8 @@ $(document).ready(() => {
                 console.log('ajax success!', result);
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
-                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + '</td></tr>');
+                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
+                    '</td><td><input type="checkbox" class="checkitem" value="' + num + '"></td></tr>');
                 }
                 
                 $('#stores').prop('selectedIndex', null);
@@ -52,3 +54,6 @@ $(document).ready(() => {
    });
 });
 
+$('#checkall').change(function() {
+    $('.checkitem').prop("checked", $(this).prop("checked"))
+})
