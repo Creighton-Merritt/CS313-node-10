@@ -52,8 +52,8 @@ $(document).ready(() => {
             }
         });
    });
+    $('#checkall').change(function() {
+        $('.checkitem').prop("checked", $(this).prop("checked"))
+    })
 });
 
-$('#checkall').change(function() {
-    $('.checkitem').prop("checked", $(this).prop("checked"))
-})
