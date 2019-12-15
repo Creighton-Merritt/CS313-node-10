@@ -18,8 +18,10 @@ function add() {
         console.log(result);
         var count = $('#table tr').length;
         console.log("Count", count);
-        $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
-        '</td><td><input type="checkbox" class="checkitem" value="' + count + '"></td></tr>');
+
+        // need to figure out how to get the item_id after inserting it into the database
+        // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
+        // '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
     } else {
         $('#tableBody').text("Error");
     }
@@ -43,7 +45,7 @@ $(document).ready(() => {
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
                     $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
-                    '</td><td><input type="checkbox" class="checkitem" value="' + i + '"></td></tr>');
+                    '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
                 }
                 
                 $('#stores').prop('selectedIndex', null);

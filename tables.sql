@@ -38,6 +38,7 @@ CREATE TABLE stores (
 );
 
 CREATE TABLE groceryItems (
+    id SERIAL primary key,
     item_name VARCHAR(100),
     store_id INTEGER REFERENCES stores(id)
 );
@@ -71,4 +72,6 @@ ON store_id = id
 ORDER BY store_name;
 
 -- Test insert
-INSERT INTO groceryItems (item_name, store_id) VALUES ('Cheddar Slices', 2);
+INSERT INTO groceryItems (item_name, store_id) VALUES ('Cheddar Slices', 2); 
+
+-- delete from groceryItems where item_name = 'Granola bars';
