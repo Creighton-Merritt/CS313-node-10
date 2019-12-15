@@ -60,7 +60,7 @@ $(document).ready(() => {
         var item_id = $('.checkitem:checked').map(function() {
             return $(this).val();
         }).get().join(' ');
-        var params = str_replace(' ', ',', item_id);
+        var params = item_id.replace(' ', ',');
         console.log("Delete params", params);
         //$.post('/deletefromdb', params, function(result) {
 
