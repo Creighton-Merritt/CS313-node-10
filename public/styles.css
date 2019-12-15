@@ -30,6 +30,12 @@ h2 {
   display: inline;
 }
 
+#hiddenStoreId {
+  margin-right: 1px;
+}
+
 #addbutton {
   display: inline;
+  margin-left: 1px;
 }
+
