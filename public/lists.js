@@ -38,7 +38,7 @@ function deleteFromDB(req, res) {
     console.log("params to delete", params);
     const sql = "DELETE FROM groceryItems where item_id in($1)";
     
-    pool.query(sql, item_ids, function(err, result) {
+    pool.query(sql, params, function(err, result) {
         if (err) {
             console.log("Error in query: ")
             console.log(err);
