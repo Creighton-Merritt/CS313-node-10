@@ -40,22 +40,19 @@ function deleteFromDB(req, res) {
         if(item_ids[i] == ",") {
             console.log("Skipped i ", i);
         } else {
-            params.push(i);
+            params.push(item_ids[i]);
         }
     }
-    //const params = [item_ids];
-    console.log("params part 2, ", params);
-    //const sqlquery = [];
-    // for(var i = 0; i < params.length; i++) {
-    //     if(sqlquery[i] == ",") {
-    //         return;
-    //     } else {
-    //         sqlquery.push('$' + i);
-    //     }
-    // }
 
+    console.log("params part 2, ", params);
+
+    const sqlquery = [];
+    for(var i = 0; i < params.length; i++) {
+        sqlquery.push('$' + i);
+    }
+    
     console.log("params to delete", params);
-    const sql = "DELETE FROM groceryItems where item_id in($1)";
+    const sql = "DELETE FROM groceryItems where item_id in(" + sqlquery.join(',') + ")";
     
     pool.query(sql, params, function(err, result) {
         if (err) {
