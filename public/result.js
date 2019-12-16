@@ -56,12 +56,12 @@ $(document).ready(() => {
         $('.checkitem').prop("checked", $(this).prop("checked"))
     })
     $('#delsel').click(function() {
-        var item_id = $('.checkitem:checked').map(function() {
+        var item_ids = $('.checkitem:checked').map(function() {
             return $(this).val();
-        }).get().join(' ');
+        }).get().join(',');
         //var nameStore = $('#storeName').text();
         //console.log("Store name'",nameStore,"'");
-        item_ids = item_id.replace(/ /g, ",");
+        //item_ids = item_id.replace(/ /g, ",");
         var params = {
             item_ids: item_ids,
             //nameStore: nameStore
