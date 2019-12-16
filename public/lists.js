@@ -34,17 +34,10 @@ function deleteFromDB(req, res) {
     //console.log("Deleting from db", + nameStore);
     console.log("length ", item_ids.length);
 
-    var params = [];
-
-    for(var i = 0; i < item_ids.length; i++) {
-        if(item_ids[i] == ",") {
-            console.log("Skipped i ", i);
-        } else {
-            params.push(item_ids[i]);
-        }
-    }
+    var params = [item_ids];
 
     console.log("params part 2, ", params);
+    console.log("params length ", params.length);
 
     const sqlquery = [];
     for(var i = 1; i <= params.length; i++) {
@@ -54,13 +47,13 @@ function deleteFromDB(req, res) {
     const sql = "DELETE FROM groceryItems where item_id in(" + sqlquery.join(',') + ")";
     console.log(sql);
     
-    pool.query(sql, params, function(err, result) {
-        if (err) {
-            console.log("Error in query: ")
-            console.log(err);
-        } else {
-            result = {success: true};
-            res.json(result);
-        }
-    });
+    // pool.query(sql, params, function(err, result) {
+    //     if (err) {
+    //         console.log("Error in query: ")
+    //         console.log(err);
+    //     } else {
+    //         result = {success: true};
+    //         res.json(result);
+    //     }
+    // });
 }

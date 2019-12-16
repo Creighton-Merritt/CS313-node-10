@@ -68,19 +68,19 @@ $(document).ready(() => {
         };
         console.log("Delete params", params);
 
-    //     $.post("/deleteFromDB", params, function(result) {
-    //         if (result.success) {
-    //             console.log(result);
-    //             //var count = $('#table tr').length;
-    //             console.log("Deleted");
+        $.post("/deleteFromDB", params, function(result) {
+            if (result.success) {
+                console.log(result);
+                //var count = $('#table tr').length;
+                console.log("Deleted");
         
-    //             // need to figure out how to get the item_id after inserting it into the database
-    //             // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
-    //             // '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
-    //         } else {
-    //             $('#tableBody').text("Error");
-    //         }
-    //     });
+                // need to figure out how to get the item_id after inserting it into the database
+                // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
+                // '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
+            } else {
+                $('#tableBody').text("Error");
+            }
+        });
 
     });
 });
