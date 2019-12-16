@@ -74,4 +74,5 @@ ORDER BY store_name;
 -- Test insert
 INSERT INTO groceryItems (item_name, store_id) VALUES ('Cheddar Slices', 2); 
 
--- delete from groceryItems where item_name = 'Granola bars';
+-- Delete more than one item at a time
+const sql = "DELETE FROM groceryItems where item_id in($1)";

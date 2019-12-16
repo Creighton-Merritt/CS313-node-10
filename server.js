@@ -30,7 +30,7 @@ app.get('/stores/:storeId', (req, res) => {
 });
 
 app.post('/addToDb', getStoreList.addToDb);
-//app.post('/deletefromdb', function(req, res))
+app.post('/deleteFromDB', getStoreList.deleteFromDB);
 
 app.get('/', function(req, res) {
     res.render('pages/manageList')
@@ -64,12 +64,3 @@ function getListByStore(id, callback) {
 
 }
 
-// function deletefromdb(id, callback) {
-//     console.log("Deleting from db", + id)
-        // get params and store id from body?
-//     var myid = id;
-//     var items = str_replace(' ', ',', $myid);
-//     console.log("new items string", items);
-//     const sql = "DELETE FROM groceryItems where id in($1)";
-
-// }

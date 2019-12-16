@@ -59,11 +59,27 @@ $(document).ready(() => {
         var item_id = $('.checkitem:checked').map(function() {
             return $(this).val();
         }).get().join(',');
-        var storeName = $('#storeName').text();
-        console.log("Store name", storeName);
-        var params = item_id; //.replace(' ', ',');
+        //var nameStore = $('#storeName').text();
+        console.log("Store name'",nameStore,"'");
+        var params = {
+           // item_ids: item_id,
+            nameStore: nameStore
+        };
         console.log("Delete params", params);
-        //$.post('/deletefromdb', params, function(result) {
+
+        $.post("/deleteFromDB", params, function(result) {
+            if (result.success) {
+                console.log(result);
+                //var count = $('#table tr').length;
+                console.log("Deleted", deleted);
+        
+                // need to figure out how to get the item_id after inserting it into the database
+                // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
+                // '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
+            } else {
+                $('#tableBody').text("Error");
+            }
+        });
 
     });
 });
