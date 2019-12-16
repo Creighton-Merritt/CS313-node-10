@@ -30,10 +30,9 @@ function addToDb(req, res) {
 
 function deleteFromDB(req, res) {
     // const nameStore = req.body.nameStore;
-    const ids = req.body.item_ids;
+    const item_ids = req.body.item_ids;
     //console.log("Deleting from db", + nameStore);
 
-    item_ids = ids.replace(/ /g, ",");
     const params = [item_ids];
     console.log("params to delete", params);
     const sql = "DELETE FROM groceryItems where item_id in($1)";

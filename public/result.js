@@ -61,8 +61,9 @@ $(document).ready(() => {
         }).get().join(' ');
         //var nameStore = $('#storeName').text();
         //console.log("Store name'",nameStore,"'");
+        item_ids = item_id.replace(/ /g, ",");
         var params = {
-            item_ids: item_id,
+            item_ids: item_ids,
             //nameStore: nameStore
         };
         console.log("Delete params", params);
