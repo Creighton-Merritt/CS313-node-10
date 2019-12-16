@@ -30,11 +30,9 @@ function addToDb(req, res) {
 
 function deleteFromDB(req, res) {
     // const nameStore = req.body.nameStore;
-    const item_ids = req.body.item_ids;
+    const params = req.body.item_ids;
     //console.log("Deleting from db", + nameStore);
     console.log("length ", item_ids.length);
-
-    var params = [item_ids];
 
     console.log("params part 2, ", params);
     console.log("params length ", params.length);
