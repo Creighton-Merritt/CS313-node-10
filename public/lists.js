@@ -35,7 +35,7 @@ function deleteFromDB(req, res) {
 
     const params = [item_ids];
     console.log("params to delete", params);
-    const sql = "DELETE FROM groceryItems where item_id in($1)";
+    const sql = 'DELETE FROM groceryItems where item_id in($1:csv)';
     
     pool.query(sql, params, function(err, result) {
         if (err) {
