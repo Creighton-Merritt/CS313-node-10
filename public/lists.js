@@ -32,8 +32,10 @@ function deleteFromDB(req, res) {
     // const nameStore = req.body.nameStore;
     const item_ids = req.body.item_ids;
     //console.log("Deleting from db", + nameStore);
-    console.log("IDs to delete from db", + item_ids);
 
+
+    const params = [item_ids];
+    console.log("params to delete", params);
     const sql = "DELETE FROM groceryItems where item_id in($1)";
     
     pool.query(sql, item_ids, function(err, result) {
