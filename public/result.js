@@ -59,7 +59,7 @@ $(document).ready(() => {
         var item_id = $('.checkitem:checked').map(function() {
             return $(this).val();
         }).get().join(',');
-        var storeName = $('#storeName').val();
+        var storeName = $('#storeName').text();
         console.log("Store name", storeName);
         var params = item_id; //.replace(' ', ',');
         console.log("Delete params", params);
