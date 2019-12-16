@@ -47,12 +47,12 @@ function deleteFromDB(req, res) {
     console.log("params part 2, ", params);
 
     const sqlquery = [];
-    for(var i = 0; i < params.length; i++) {
+    for(var i = 1; i <= params.length; i++) {
         sqlquery.push('$' + i);
     }
     
-    console.log("params to delete", params);
     const sql = "DELETE FROM groceryItems where item_id in(" + sqlquery.join(',') + ")";
+    console.log(sql);
     
     pool.query(sql, params, function(err, result) {
         if (err) {
