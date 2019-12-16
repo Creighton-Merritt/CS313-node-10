@@ -34,7 +34,7 @@ function deleteFromDB(req, res) {
     //console.log("Deleting from db", + nameStore);
     console.log("length ", item_ids.length)
     const params = [];
-    for(var i = 1; i <= item_ids.length; i++) {
+    for(var i = 0; i < item_ids.length; i++) {
         params.push('$' + i);
     }
 
