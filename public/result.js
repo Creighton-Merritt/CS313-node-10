@@ -58,7 +58,7 @@ $(document).ready(() => {
     $('#delsel').click(function() {
         var item_id = $('.checkitem:checked').map(function() {
             return $(this).val();
-        }).get().join(',');
+        }).get().join(' ');
         //var nameStore = $('#storeName').text();
         //console.log("Store name'",nameStore,"'");
         var params = {
