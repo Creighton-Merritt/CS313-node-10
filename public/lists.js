@@ -35,10 +35,10 @@ function deleteFromDB(req, res) {
     console.log("length ", item_ids.length);
 
     var params = [];
-    
+
     for(var i = 0; i < item_ids.length; i++) {
         if(item_ids[i] == ",") {
-            return;
+            console.log("Skipped i ", i);
         } else {
             params.push(i);
         }
