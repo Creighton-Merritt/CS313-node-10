@@ -32,7 +32,7 @@ function deleteFromDB(req, res) {
     // const nameStore = req.body.nameStore;
     const params = req.body.item_ids;
     //console.log("Deleting from db", + nameStore);
-    console.log("length ", item_ids.length);
+    console.log("length ", params.length);
 
     console.log("params part 2, ", params);
     console.log("params length ", params.length);
