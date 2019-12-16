@@ -59,8 +59,8 @@ $(document).ready(() => {
         var item_id = $('.checkitem:checked').map(function() {
             return $(this).val();
         }).get().join(' ');
-        var storeId = result[0].store_id;
-        console.log("Store id", storeId);
+        var storeName = $('#storeName');
+        console.log("Store id", storeName);
         var params = item_id.replace(' ', ',');
         console.log("Delete params", params);
         //$.post('/deletefromdb', params, function(result) {

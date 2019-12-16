@@ -66,7 +66,7 @@ function getListByStore(id, callback) {
 
 // function deletefromdb(id, callback) {
 //     console.log("Deleting from db", + id)
-
+        // get params and store id from body?
 //     var myid = id;
 //     var items = str_replace(' ', ',', $myid);
 //     console.log("new items string", items);
