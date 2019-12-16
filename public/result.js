@@ -60,7 +60,7 @@ $(document).ready(() => {
             return $(this).val();
         }).get().join(',');
         //var nameStore = $('#storeName').text();
-        console.log("Store name'",nameStore,"'");
+        //console.log("Store name'",nameStore,"'");
         var params = {
             item_ids: item_id,
             //nameStore: nameStore
