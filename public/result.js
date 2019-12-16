@@ -58,10 +58,10 @@ $(document).ready(() => {
     $('#delsel').click(function() {
         var item_id = $('.checkitem:checked').map(function() {
             return $(this).val();
-        }).get().join(' ');
+        }).get().join(',');
         var storeName = $('#storeName').val();
         console.log("Store name", storeName);
-        var params = item_id.replace(' ', ',');
+        var params = item_id; //.replace(' ', ',');
         console.log("Delete params", params);
         //$.post('/deletefromdb', params, function(result) {
 
