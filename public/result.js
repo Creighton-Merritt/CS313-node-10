@@ -58,7 +58,7 @@ $(document).ready(() => {
     $('#delsel').click(function() {
         var item_ids = $('.checkitem:checked').map(function() {
             return $(this).val();
-        }).get().join(',');
+        }).get();
         //var nameStore = $('#storeName').text();
         //console.log("Store name'",nameStore,"'");
         //item_ids = item_id.replace(/ /g, ",");
@@ -68,19 +68,19 @@ $(document).ready(() => {
         };
         console.log("Delete params", params);
 
-        $.post("/deleteFromDB", params, function(result) {
-            if (result.success) {
-                console.log(result);
-                //var count = $('#table tr').length;
-                console.log("Deleted");
+    //     $.post("/deleteFromDB", params, function(result) {
+    //         if (result.success) {
+    //             console.log(result);
+    //             //var count = $('#table tr').length;
+    //             console.log("Deleted");
         
-                // need to figure out how to get the item_id after inserting it into the database
-                // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
-                // '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
-            } else {
-                $('#tableBody').text("Error");
-            }
-        });
+    //             // need to figure out how to get the item_id after inserting it into the database
+    //             // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
+    //             // '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
+    //         } else {
+    //             $('#tableBody').text("Error");
+    //         }
+    //     });
 
     });
 });
