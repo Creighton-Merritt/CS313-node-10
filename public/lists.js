@@ -45,13 +45,13 @@ function deleteFromDB(req, res) {
     const sql = "DELETE FROM groceryItems where item_id in(" + sqlquery.join(',') + ")";
     console.log(sql);
     
-    // pool.query(sql, params, function(err, result) {
-    //     if (err) {
-    //         console.log("Error in query: ")
-    //         console.log(err);
-    //     } else {
-    //         result = {success: true};
-    //         res.json(result);
-    //     }
-    // });
+    pool.query(sql, params, function(err, result) {
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        } else {
+            result = {success: true};
+            res.json(result);
+        }
+    });
 }
