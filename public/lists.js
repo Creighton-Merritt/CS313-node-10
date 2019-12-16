@@ -21,7 +21,7 @@ function addToDb(req, res) {
             console.log(err);
         } else {
             result = {success: true};
-            const requestURL = 'stores/' + $(id).val();
+            const requestURL = 'stores/' + id;
             console.log("Request url", requestURL);
             $.ajax({
                 url: requestURL,
