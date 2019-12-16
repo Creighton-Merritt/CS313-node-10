@@ -28,7 +28,6 @@ function add() {
 });
 }
 
-
 $(document).ready(() => {
     $('#storeSubmit').click(() => {
         const requestURL = 'stores/' + $('#stores :selected').val();
@@ -60,6 +59,8 @@ $(document).ready(() => {
         var item_id = $('.checkitem:checked').map(function() {
             return $(this).val();
         }).get().join(' ');
+        var storeId = result[0].store_id;
+        console.log("Store id", storeId);
         var params = item_id.replace(' ', ',');
         console.log("Delete params", params);
         //$.post('/deletefromdb', params, function(result) {
