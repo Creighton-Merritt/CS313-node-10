@@ -62,8 +62,8 @@ $(document).ready(() => {
         //var nameStore = $('#storeName').text();
         console.log("Store name'",nameStore,"'");
         var params = {
-           // item_ids: item_id,
-            nameStore: nameStore
+            item_ids: item_id,
+            //nameStore: nameStore
         };
         console.log("Delete params", params);
 
