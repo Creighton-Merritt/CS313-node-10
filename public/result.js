@@ -1,7 +1,6 @@
 
 $(document).ready(() => {
 
-
     // Change list for stores on change of dropdown list
     $('#stores').change(() => {
         // Set store id and name values
@@ -10,7 +9,6 @@ $(document).ready(() => {
 
         // Request endpoint from server.js to get list for selected store
         const requestURL = 'stores/' + storeVal;
-        console.log("Request url", requestURL);
 
         //Use ajax to retrieve and display list without refreshing page
         $.ajax({
@@ -20,7 +18,6 @@ $(document).ready(() => {
             success: (result) => {
                 $('#tableBody').html("");
                 $('#storeName').html(storeName);
-                console.log('ajax success!', result);
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
                     // Create table
@@ -44,11 +41,8 @@ $(document).ready(() => {
             alert('Please enter item');
             return;
         }
-        console.log("Enter add");
         var itemname = $("#itemName").val();
         var storeid = $("#hiddenStoreId").val();
-        console.log(itemname);
-        console.log(storeid);
 
         var params = {
             itemname: itemname,
@@ -62,14 +56,12 @@ $(document).ready(() => {
         $.post("/addToDb", params, function(result) {
             if (result.success) {
                 const requestURL = 'stores/' + $('#hiddenStoreId').val();
-                console.log("Request url for add to db", requestURL);
                 $.ajax({
                     url: requestURL,
                     type: 'GET',
                     dataType: 'json',
                     success: (result) => {
                         $('#tableBody').html("");
-                        console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
                             $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
@@ -100,23 +92,17 @@ $(document).ready(() => {
             item_ids: item_ids,
         };
 
-        console.log("Delete params", params);
-
         const requestURL = 'stores/' + $('#hiddenStoreId').val();
-        console.log("Request url for add to db", requestURL);
 
         // Delete array of checked items and update table results
         $.post("/deleteFromDB", params, function(result) {
             if (result.success) {
-                console.log(result);
-                console.log("Deleted");
                 $.ajax({
                     url: requestURL,
                     type: 'GET',
                     dataType: 'json',
                     success: (result) => {
                         $('#tableBody').html("");
-                        console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
                             $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 

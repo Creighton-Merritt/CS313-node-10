@@ -23,7 +23,6 @@ app.get('/stores/:storeId', (req, res) => {
         if (error || result == null) {
             res.status(500).json({success:false, data: error});
         } else {
-            //console.log("Back from the database with store result: ", result);
             res.send(result);
         }
     });
@@ -43,7 +42,6 @@ app.listen(app.get('port'), function() {
 
 //Function called by '/stores' to query database and return list of items for selected store
 function getListByStore(id, callback) {
-	//console.log("Getting list from DB with id: " + id);
     const sql = "SELECT item_name, store_name, item_id, store_id FROM stores LEFT JOIN groceryitems ON store_id = id WHERE store_id = $1::int";
 	
 	const params = [id];
@@ -55,7 +53,6 @@ function getListByStore(id, callback) {
 			callback(err, null);
 		}
 
-		// console.log("Found result for store: " + JSON.stringify(result.rows));
 		callback(null, result.rows);
 	});
 
