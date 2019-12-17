@@ -39,6 +39,7 @@ $(document).ready(() => {
     $('#addbutton').click(() => {
         if ($("#itemName").val() == "" || $("#itemName").val() == " ") {
             alert('Please enter item');
+            break;
         }
         console.log("Enter add");
         var itemname = $("#itemName").val();
