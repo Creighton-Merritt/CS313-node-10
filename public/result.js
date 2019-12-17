@@ -18,6 +18,8 @@ function add() {
         console.log(result);
         // var count = $('#table tr').length;
         // console.log("Count", count);
+        const requestURL = 'stores/' + $('#hiddenStoreId').val();
+        console.log("Request url for add to db", requestURL);
         $.ajax({
             url: requestURL,
             type: 'GET',
@@ -91,8 +93,6 @@ $(document).ready(() => {
             if (result.success) {
                 console.log(result);
                 console.log("Deleted");
-                const requestURL = 'stores/' + $('#hiddenStoreId').val();
-                console.log("Request url", requestURL);
                 $.ajax({
                     url: requestURL,
                     type: 'GET',
