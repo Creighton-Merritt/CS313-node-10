@@ -84,6 +84,8 @@ $(document).ready(() => {
 
         console.log("Delete params", params);
 
+        const requestURL = 'stores/' + $('#hiddenStoreId').val();
+        console.log("Request url for add to db", requestURL);
         $.post("/deleteFromDB", params, function(result) {
             if (result.success) {
                 console.log(result);
