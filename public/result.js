@@ -1,9 +1,5 @@
 
 $(document).ready(() => {
-    // Layout for the table
-    var markup = '<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
-        '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>';
-
     // Change list for stores on change of dropdown list
     $('#stores').change(() => {
         // Set store id and name values
@@ -26,7 +22,8 @@ $(document).ready(() => {
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
                     // Create table
-                    $('#tableBody').append(markup);
+                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
+                    '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
                 }
                 
                 // Reset store selection field
@@ -71,7 +68,8 @@ $(document).ready(() => {
                         console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
-                            $('#tableBody').append(markup);
+                            $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
+                            '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
                         }
                     }
                 });
@@ -115,7 +113,8 @@ $(document).ready(() => {
                         console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
-                            $('#tableBody').append(markup);
+                            $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
+                            '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
                         }
                     }
                 });
