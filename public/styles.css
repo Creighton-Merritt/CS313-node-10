@@ -44,9 +44,9 @@ td {
   align-content: center;
 }
 
-#checkall:before, #checkall:checked {
+input#checkall {
   transform: scale(1.4);
-  filter: brightness(85%);
+  filter: brightness(95%);
 }
 
 .checkitem:hover {
