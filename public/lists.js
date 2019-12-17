@@ -35,11 +35,13 @@ function deleteFromDB(req, res) {
     console.log("params part 2, ", params);
     console.log("params length ", params.length);
 
+    // Dynamically create placeholder based on how many items will be deleted
     const sqlquery = [];
     for(var i = 1; i <= params.length; i++) {
         sqlquery.push('$' + i);
     }
     
+    // Split the array we just made for the placeholder by "," so it ends up being like "$1, $2, $3" etc...
     const sql = "DELETE FROM groceryitems where item_id in(" + sqlquery.join(',') + ")";
     console.log(sql);
     

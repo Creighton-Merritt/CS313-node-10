@@ -37,7 +37,7 @@ $(document).ready(() => {
 
     // Add to database
     $('#addbutton').click(() => {
-        if (!this.value) {
+        if (this.value == "") {
             alert('Please enter item');
         }
         console.log("Enter add");
