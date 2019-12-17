@@ -44,8 +44,9 @@ td {
   align-content: center;
 }
 
-#checkall {
-  border-radius: 3px;
+#checkall:before, #checkall:checked {
+  transform: scale(1.4);
+  filter: brightness(85%);
 }
 
 .checkitem:hover {
@@ -53,7 +54,7 @@ td {
   filter: brightness(85%);
 }
 
-.checkitem:clicked {
+.checkitem:checked {
   transform: scale(1.4);
   filter: brightness(85%);
 }
