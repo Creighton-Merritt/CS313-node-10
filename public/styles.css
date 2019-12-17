@@ -45,10 +45,11 @@ td {
 }
 
 #checkall input[type=checkbox] {
-  font-weight:bold;
+  transform: scale(1.4);
+  filter: brightness(85%);
 }
 
-#checkitem:hover {
+.checkitem:hover {
   transform: scale(1.4);
   filter: brightness(85%);
 }
