@@ -47,7 +47,7 @@ $(document).ready(() => {
                 }
                 
                 $('#stores').prop('selectedIndex', null);
-                $('#hiddenStoreId').attr("value", result[0].store_id);
+                $('#hiddenStoreId').attr("value", $('#stores :selected').val());
                 $('#adding').css("visibility", "visible");
             }
         });
