@@ -44,11 +44,16 @@ td {
   align-content: center;
 }
 
-#checkall input[type=checkbox] {
-  scale: 1.4;
+#checkall {
+  font-weight:bold;
 }
 
 .checkitem:hover {
+  transform: scale(1.4);
+  filter: brightness(85%);
+}
+
+.checkitem:clicked {
   transform: scale(1.4);
   filter: brightness(85%);
 }
