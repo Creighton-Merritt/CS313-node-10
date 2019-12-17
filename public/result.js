@@ -1,6 +1,48 @@
 
 $(document).ready(() => {
+    // Layout for the table
+    var markup = '<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
+        '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>';
+
+    // Change list for stores on change of dropdown list
+    $('#stores').change(() => {
+        // Set store id and name values
+        const storeVal = $('#stores :selected').val();
+        const storeName = $('#stores :selected').text();
+
+        // Request endpoint from server.js to get list for selected store
+        const requestURL = 'stores/' + storeVal;
+        console.log("Request url", requestURL);
+
+        //Use ajax to retrieve and display list without refreshing page
+        $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (result) => {
+                $('#tableBody').html("");
+                $('#storeName').html(storeName);
+                console.log('ajax success!', result);
+                for (i=0 ; i < result.length ; i++) {
+                    var num = (i + 1);
+                    // Create table
+                    $('#tableBody').append(markup);
+                }
+                
+                // Reset store selection field
+                // Unhide div where store name is dispalyed and options to add or delete items from current list
+                $('#stores').prop('selectedIndex', null);
+                $('#hiddenStoreId').attr("value", storeVal);
+                $('#adding').css("visibility", "visible");
+            }
+        });
+    });
+
+    // Add to database
     $('#addbutton').click(() => {
+        if (!this.value) {
+            alert('Please enter item');
+        }
         console.log("Enter add");
         var itemname = $("#itemName").val();
         var storeid = $("#hiddenStoreId").val();
@@ -12,8 +54,10 @@ $(document).ready(() => {
             storeid: storeid
         };
 
+        // Reset input field
         document.getElementById("itemName").value = "";
 
+        // Add to the database and return updated table results.
         $.post("/addToDb", params, function(result) {
             if (result.success) {
                 const requestURL = 'stores/' + $('#hiddenStoreId').val();
@@ -24,55 +68,25 @@ $(document).ready(() => {
                     dataType: 'json',
                     success: (result) => {
                         $('#tableBody').html("");
-                        //$('#storeName').html(result[0].store_name);
                         console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
-                            $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
-                            '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
+                            $('#tableBody').append(markup);
                         }
-                        // $('#stores').prop('selectedIndex', null);
-                        // $('#hiddenStoreId').attr("value", result[0].store_id);
-                        // $('#adding').css("visibility", "visible");
                     }
                 });
             } else {
                 $('#tableBody').text("Error");
             }
         });
-    });
+    })
 
-
-    $('#stores').change(() => {
-        const storeVal = $('#stores :selected').val();
-        const storeName = $('#stores :selected').text();
-        const requestURL = 'stores/' + storeVal;
-        console.log("Request url", requestURL);
-        $.ajax({
-            url: requestURL,
-            type: 'GET',
-            dataType: 'json',
-            success: (result) => {
-                $('#tableBody').html("");
-                $('#storeName').html(storeName);
-                console.log('ajax success!', result);
-                for (i=0 ; i < result.length ; i++) {
-                    var num = (i + 1);
-                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
-                    '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
-                }
-                
-                $('#stores').prop('selectedIndex', null);
-                $('#hiddenStoreId').attr("value", storeVal);
-                $('#adding').css("visibility", "visible");
-            }
-        });
-    });
-
+    // listen for items being checked
     $('#checkall').change(function() {
         $('.checkitem').prop("checked", $(this).prop("checked"))
     })
 
+    // Create array of checked items to be deleted
     $('#delsel').click(function() {
         var item_ids = $('.checkitem:checked').map(function() {
             return $(this).val();
@@ -86,6 +100,8 @@ $(document).ready(() => {
 
         const requestURL = 'stores/' + $('#hiddenStoreId').val();
         console.log("Request url for add to db", requestURL);
+
+        // Delete array of checked items and update table results
         $.post("/deleteFromDB", params, function(result) {
             if (result.success) {
                 console.log(result);
@@ -96,17 +112,11 @@ $(document).ready(() => {
                     dataType: 'json',
                     success: (result) => {
                         $('#tableBody').html("");
-                        //$('#storeName').html(result[0].store_name);
                         console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
-                            $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
-                            '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
+                            $('#tableBody').append(markup);
                         }
-                        
-                        // $('#stores').prop('selectedIndex', null);
-                        // $('#hiddenStoreId').attr("value", result[0].store_id);
-                        // $('#adding').css("visibility", "visible");
                     }
                 });
             } else {
