@@ -15,11 +15,32 @@ function add() {
 
     $.post("/addToDb", params, function(result) {
     if (result.success) {
-        console.log(result);
-        var count = $('#table tr').length;
-        console.log("Count", count);
-        $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
-        '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
+        const requestURL = 'stores/' + $('#hiddenStoreId').val();
+        console.log("Request url for add to db", requestURL);
+        $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (result) => {
+                $('#tableBody').html("");
+                $('#storeName').html(result[0].store_name);
+                console.log('ajax success!', result);
+                for (i=0 ; i < result.length ; i++) {
+                    var num = (i + 1);
+                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
+                    '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
+                }
+                
+                $('#stores').prop('selectedIndex', null);
+                $('#hiddenStoreId').attr("value", result[0].store_id);
+                $('#adding').css("visibility", "visible");
+            }
+        });
+        // console.log(result);
+        // var count = $('#table tr').length;
+        // console.log("Count", count);
+        // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
+        // '</td><td><input type="checkbox" class="checkitem" value="' + (count - 1) + '"></td></tr>');
     } else {
         $('#tableBody').text("Error");
     }

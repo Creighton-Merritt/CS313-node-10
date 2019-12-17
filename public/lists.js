@@ -22,8 +22,6 @@ function addToDb(req, res) {
         } else {
             result = {success: true};
             res.json(result);
-            // const targetURL = 'stores/' + id;
-            // res.redirect(targetURL);
         }
     });
 
