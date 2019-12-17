@@ -59,20 +59,23 @@ $(document).ready(() => {
         var item_ids = $('.checkitem:checked').map(function() {
             return $(this).val();
         }).get();
+        if($(this).is(":checked")) {
+            $(this.parents("tr").remove());
+        }
         
         var params = {
             item_ids: item_ids,
         };
         console.log("Delete params", params);
 
-        $.post("/deleteFromDB", params, function(result) {
-            if (result.success) {
-                console.log(result);
-                console.log("Deleted");
-            } else {
-                $('#tableBody').text("Error");
-            }
-        });
+        // $.post("/deleteFromDB", params, function(result) {
+        //     if (result.success) {
+        //         console.log(result);
+        //         console.log("Deleted");
+        //     } else {
+        //         $('#tableBody').text("Error");
+        //     }
+        // });
 
     });
 });
