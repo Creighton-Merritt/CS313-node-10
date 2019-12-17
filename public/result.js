@@ -38,7 +38,7 @@ $(document).ready(() => {
             dataType: 'json',
             success: (result) => {
                 $('#tableBody').html("");
-                $('#storeName').html(result[0].store_name);
+                $('#storeName').html($('#stores :selected').text());
                 console.log('ajax success!', result);
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
