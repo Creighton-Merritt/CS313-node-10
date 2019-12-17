@@ -70,7 +70,7 @@ $(document).ready(() => {
             if (result.success) {
                 console.log(result);
                 console.log("Deleted");
-                const requestURL = 'stores/' + $('#storeName').text();
+                const requestURL = 'stores/' + $('#hiddenStoreId').val();
                 console.log("Request url", requestURL);
                 $.ajax({
                     url: requestURL,
