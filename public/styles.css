@@ -42,3 +42,13 @@ td {
 #thirdcol, .checkitem {
   align-content: center;
 }
+
+input[type=checkbox] + span{
+  font-weight:normal;
+  color: gray;
+}
+
+#checkall input[type=checkbox]:checked {
+  font-weight:bold;
+  color:black;
+}
