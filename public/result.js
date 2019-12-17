@@ -56,12 +56,13 @@ $(document).ready(() => {
         $('.checkitem').prop("checked", $(this).prop("checked"))
     })
     $('#delsel').click(function() {
-        var item_ids = $('.checkitem:checked').map(function() {
-            return $(this).val();
-        }).get();
         if($(this).is(":checked")) {
             $(this.parents("tr").remove());
         }
+        var item_ids = $('.checkitem:checked').map(function() {
+            return $(this).val();
+        }).get();
+
         
         var params = {
             item_ids: item_ids,
