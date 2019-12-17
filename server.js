@@ -27,7 +27,7 @@ app.get('/stores/:storeId', (req, res) => {
             res.send(result);
         }
     });
-});
+}); 
 
 app.post('/addToDb', getStoreList.addToDb);
 app.post('/deleteFromDB', getStoreList.deleteFromDB);
