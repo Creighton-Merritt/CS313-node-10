@@ -39,16 +39,16 @@ td {
   display: inline;
   margin-left: 10px;
 }
+
 #thirdcol, .checkitem {
   align-content: center;
 }
 
-input[type=checkbox] + span{
-  font-weight:normal;
-  color: gray;
+#checkall input[type=checkbox] {
+  font-weight:bold;
 }
 
-#checkall input[type=checkbox]:checked {
-  font-weight:bold;
-  color:black;
+#checkitem:hover {
+  transform: scale(1.4);
+  filter: brightness(85%);
 }
