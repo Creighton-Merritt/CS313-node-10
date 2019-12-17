@@ -45,8 +45,7 @@ td {
 }
 
 #checkall input[type=checkbox] {
-  transform: scale(1.4);
-  filter: brightness(85%);
+  scale: 1.4;
 }
 
 .checkitem:hover {
