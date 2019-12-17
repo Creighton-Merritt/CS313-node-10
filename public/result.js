@@ -1,5 +1,7 @@
 
 $(document).ready(() => {
+
+
     // Change list for stores on change of dropdown list
     $('#stores').change(() => {
         // Set store id and name values
@@ -35,9 +37,10 @@ $(document).ready(() => {
         });
     });
 
+
     // Add to database
     $('#addbutton').click(() => {
-        if ($("#itemName").val() == "" || $("#itemName").val() == " ") {
+        if($.trim($('#itemName').val()) === '') {
             alert('Please enter item');
             return;
         }
@@ -80,10 +83,12 @@ $(document).ready(() => {
         });
     })
 
+
     // listen for items being checked
     $('#checkall').change(function() {
         $('.checkitem').prop("checked", $(this).prop("checked"))
     })
+
 
     // Create array of checked items to be deleted
     $('#delsel').click(function() {
