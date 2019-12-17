@@ -1,8 +1,4 @@
 
-// function add() {
-    
-// }
-
 $(document).ready(() => {
     $('#addbutton').click(() => {
         console.log("Enter add");

@@ -46,7 +46,7 @@ app.listen(app.get('port'), function() {
 function getListByStore(id, callback) {
 	console.log("Getting list from DB with id: " + id);
 
-    const sql = "SELECT item_name, store_name, item_id, store_id FROM stores LEFT JOIN groceryItems ON store_id = id WHERE store_id = $1::int";
+    const sql = "SELECT item_name, store_name, item_id, store_id FROM stores LEFT JOIN groceryitems ON store_id = id WHERE store_id = $1::int";
 	
 	const params = [id];
 

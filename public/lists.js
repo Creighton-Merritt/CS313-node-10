@@ -13,7 +13,7 @@ function addToDb(req, res) {
     console.log("Info from form: " + id);
     console.log("Info from form: " + itemname);
     const params = [itemname, id];
-    const sql = "INSERT INTO groceryItems (item_name, store_id) VALUES ($1, $2)";
+    const sql = "INSERT INTO groceryitems (item_name, store_id) VALUES ($1, $2)";
     
     pool.query(sql, params, function(err, result) {
         if (err) {
@@ -40,7 +40,7 @@ function deleteFromDB(req, res) {
         sqlquery.push('$' + i);
     }
     
-    const sql = "DELETE FROM groceryItems where item_id in(" + sqlquery.join(',') + ")";
+    const sql = "DELETE FROM groceryitems where item_id in(" + sqlquery.join(',') + ")";
     console.log(sql);
     
     pool.query(sql, params, function(err, result) {

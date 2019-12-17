@@ -38,7 +38,7 @@ CREATE TABLE stores (
 );
 
 CREATE TABLE groceryItems (
-    id SERIAL primary key,
+    item_id SERIAL primary key,
     item_name VARCHAR(100),
     store_id INTEGER REFERENCES stores(id)
 );
