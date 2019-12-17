@@ -30,7 +30,9 @@ function add() {
 
 $(document).ready(() => {
     $('#storeSubmit').click(() => {
-        const requestURL = 'stores/' + $('#stores :selected').val();
+        const storeVal = $('#stores :selected').val();
+        const storeName = $('#stores :selected').text();
+        const requestURL = 'stores/' + storeVal;
         console.log("Request url", requestURL);
         $.ajax({
             url: requestURL,
@@ -38,7 +40,7 @@ $(document).ready(() => {
             dataType: 'json',
             success: (result) => {
                 $('#tableBody').html("");
-                $('#storeName').html($('#stores :selected').text());
+                $('#storeName').html(storeName);
                 console.log('ajax success!', result);
                 for (i=0 ; i < result.length ; i++) {
                     var num = (i + 1);
@@ -47,7 +49,7 @@ $(document).ready(() => {
                 }
                 
                 $('#stores').prop('selectedIndex', null);
-                $('#hiddenStoreId').attr("value", $('#stores :selected').val());
+                $('#hiddenStoreId').attr("value", storeVal);
                 $('#adding').css("visibility", "visible");
             }
         });
