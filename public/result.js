@@ -48,7 +48,7 @@ function add() {
 }
 
 $(document).ready(() => {
-    $('#storeSubmit').click(() => {
+    $('#storeSubmit').change(() => {
         const storeVal = $('#stores :selected').val();
         const storeName = $('#stores :selected').text();
         const requestURL = 'stores/' + storeVal;
