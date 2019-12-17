@@ -24,17 +24,16 @@ $(document).ready(() => {
                     dataType: 'json',
                     success: (result) => {
                         $('#tableBody').html("");
-                        $('#storeName').html(result[0].store_name);
+                        //$('#storeName').html(result[0].store_name);
                         console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
                             $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
                             '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
                         }
-                        
-                        $('#stores').prop('selectedIndex', null);
-                        $('#hiddenStoreId').attr("value", result[0].store_id);
-                        $('#adding').css("visibility", "visible");
+                        // $('#stores').prop('selectedIndex', null);
+                        // $('#hiddenStoreId').attr("value", result[0].store_id);
+                        // $('#adding').css("visibility", "visible");
                     }
                 });
             } else {
@@ -95,7 +94,7 @@ $(document).ready(() => {
                     dataType: 'json',
                     success: (result) => {
                         $('#tableBody').html("");
-                        $('#storeName').html(result[0].store_name);
+                        //$('#storeName').html(result[0].store_name);
                         console.log('ajax success!', result);
                         for (i=0 ; i < result.length ; i++) {
                             var num = (i + 1);
@@ -103,9 +102,9 @@ $(document).ready(() => {
                             '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
                         }
                         
-                        $('#stores').prop('selectedIndex', null);
-                        $('#hiddenStoreId').attr("value", result[0].store_id);
-                        $('#adding').css("visibility", "visible");
+                        // $('#stores').prop('selectedIndex', null);
+                        // $('#hiddenStoreId').attr("value", result[0].store_id);
+                        // $('#adding').css("visibility", "visible");
                     }
                 });
             } else {
