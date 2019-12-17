@@ -21,6 +21,7 @@ function addToDb(req, res) {
             console.log(err);
         } else {
             result = {success: true};
+            res.json(result);
             // const targetURL = 'stores/' + id;
             // res.redirect(targetURL);
         }
