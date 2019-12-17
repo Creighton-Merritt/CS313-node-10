@@ -16,8 +16,27 @@ function add() {
     $.post("/addToDb", params, function(result) {
     if (result.success) {
         console.log(result);
-        var count = $('#table tr').length;
-        console.log("Count", count);
+        // var count = $('#table tr').length;
+        // console.log("Count", count);
+        $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (result) => {
+                $('#tableBody').html("");
+                $('#storeName').html(result[0].store_name);
+                console.log('ajax success!', result);
+                for (i=0 ; i < result.length ; i++) {
+                    var num = (i + 1);
+                    $('#tableBody').append('<tr><th scope="row">' + num + '</th><td class="text-left">' + result[i].item_name + 
+                    '</td><td><input type="checkbox" class="checkitem" value="' + result[i].item_id + '"></td></tr>');
+                }
+                
+                $('#stores').prop('selectedIndex', null);
+                $('#hiddenStoreId').attr("value", result[0].store_id);
+                $('#adding').css("visibility", "visible");
+            }
+        });
 
         // need to figure out how to get the item_id after inserting it into the database
         // $('#tableBody').append('<tr><th scope="row">' + count + '</th><td class="text-left">' + itemname + 
